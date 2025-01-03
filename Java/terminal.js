@@ -3,17 +3,17 @@ window.onload = function() {
     const input = document.getElementById('input');
     const terminal = document.getElementById('terminal');
 
-    // Kicsi késleltetéssel hozzáadjuk a 'visible' osztályt az animációhoz
+    
     setTimeout(() => {
         terminal.classList.add('visible');
 
-        // Késleltetés után elindítjuk a gépelést is
+        
         let initialMessage = 'Kasza Lehel terminal [Version 10.0.22631.4602]. You can use the following commands: "help", "projects", "informations", "exit".\n';
         typeMessage(initialMessage, 50, () => {
             input.focus(); 
             input.disabled = false; 
         });
-    }, 200); // 200ms késleltetés az animáció indításához
+    }, 200); 
 
     const commands = {
         'help': 'Available commands: "help", "projects", "informations", "exit"',
@@ -49,6 +49,7 @@ window.onload = function() {
             }
 
             output.scrollTop = output.scrollHeight;
+            limitOutputLines();
         }
     });
 
@@ -68,10 +69,25 @@ window.onload = function() {
                 if (callback) {
                     callback(); 
                 }
+                limitOutputLines();
             }
         }
 
         input.disabled = true; 
         type();
     }
+
+    function limitOutputLines() {
+        const terminalHeight = terminal.clientHeight; // A terminál magassága
+        const lineHeight = parseFloat(window.getComputedStyle(output).lineHeight); // Egy sor magassága
+        const maxLines = Math.floor(terminalHeight / lineHeight)-2; // Maximális sorok száma
+
+        const lines = output.innerHTML.split('\n');
+
+        if (lines.length > maxLines) {
+            output.innerHTML = lines.slice(lines.length - maxLines).join('\n');
+        }
+    }
+
+    window.addEventListener('resize', limitOutputLines);
 };

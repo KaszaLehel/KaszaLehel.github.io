@@ -27,7 +27,7 @@ body {
     background: #222; /*111*/
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
-    overflow-y: auto;
+    overflow: hidden;
     border-radius: 8px;  
     position: relative;  
     /*transition: box-shadow 0.3s ease; */
@@ -43,7 +43,7 @@ body {
 
 #output {
     white-space: pre-wrap;
-    line-height: 1.5em;
+    line-height: 1.4em;
 }
 
 #input-line {
