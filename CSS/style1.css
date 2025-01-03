@@ -16,6 +16,30 @@ body
     min-height: 100vh;
     background: #222;
 }
+
+#container {
+    position: absolute; 
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    overflow: hidden;
+}
+
+h1 {
+    color: #999;
+    font-size: 4em;
+    margin-top: 70px;
+    margin-bottom: 10px;
+
+}
+
+p {
+    color: #999;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
 a
 {
     position: relative;

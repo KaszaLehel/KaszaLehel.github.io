@@ -7,10 +7,13 @@
     box-sizing:content-box;
 }
 
+
 body {
     background: #222;
     color: #0f0;
     display: flex;
+    /*justify-content: flex-start;
+    align-items: flex-start;*/
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -21,13 +24,21 @@ body {
     width: 80%;
     max-width: 800px;
     height: 60%;
-    background: #111;
+    background: #222; /*111*/
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
     overflow-y: auto;
     border-radius: 8px;  
     position: relative;  
-    transition: box-shadow 0.3s ease; 
+    /*transition: box-shadow 0.3s ease; */
+    opacity: 0;                /* Kezdetben átlátszó */
+    transform: translateY(-100px); /* Fentről indul */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* Animáció */
+}
+
+#terminal.visible {
+    opacity: 1;                /* Teljesen láthatóvá válik */
+    transform: translateY(0);  /* Visszahelyezkedik a helyére */
 }
 
 #output {
@@ -44,9 +55,22 @@ body {
     background: transparent;
     border: none;
     color: #0f0;
+    text-decoration: none !important;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     font-size: 1em;
     width: 100%;
     outline: none;
+}
+input:invalid
+{
+    text-decoration: none !important;
+}
+input:focus
+{
+    outline: none;
+}
+
+input, textarea {
+    caret-color: #0f0; 
 }
