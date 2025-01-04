@@ -6,10 +6,9 @@ window.onload = function() {
     
     setTimeout(() => {
         terminal.classList.add('visible');
-
         
         let initialMessage = 'Kasza Lehel terminal [Version 10.0.22631.4602]. You can use the following commands: "help", "projects", "informations", "exit".\n';
-        typeMessage(initialMessage, 50, () => {
+        typeMessage(initialMessage, 60, () => {
             input.focus(); 
             input.disabled = false; 
         });

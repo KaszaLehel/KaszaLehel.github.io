@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
+    /*font-weight: bold;*/
     box-sizing:content-box;
 }
 
@@ -12,10 +12,10 @@ body {
     background: #222;
     color: #0f0;
     display: flex;
-    /*justify-content: flex-start;
-    align-items: flex-start;*/
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /*justify-content: center;
+    align-items: center;*/
     height: 100vh;
     overflow: hidden;
 }
@@ -23,22 +23,22 @@ body {
 #terminal {
     width: 80%;
     max-width: 800px;
-    height: 60%;
+    height: 100%;
     background: #222; /*111*/
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+    /*box-shadow: 0 0 10px rgba(0, 255, 0, 0.8);*/
     overflow: hidden;
     border-radius: 8px;  
     position: relative;  
     /*transition: box-shadow 0.3s ease; */
-    opacity: 0;                /* Kezdetben átlátszó */
-    transform: translateY(-100px); /* Fentről indul */
-    transition: opacity 0.8s ease, transform 0.8s ease; /* Animáció */
+    opacity: 0;                
+    transform: translateY(-100px); 
+    transition: opacity 0.8s ease, transform 0.8s ease; 
 }
 
 #terminal.visible {
-    opacity: 1;                /* Teljesen láthatóvá válik */
-    transform: translateY(0);  /* Visszahelyezkedik a helyére */
+    opacity: 1;                
+    transform: translateY(0);  
 }
 
 #output {
@@ -51,13 +51,18 @@ body {
     align-items: center;
 }
 
+#input-line.invisible
+{
+    display: none;
+}
+
 #input {
     background: transparent;
     border: none;
     color: #0f0;
     text-decoration: none !important;
     font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 1em;
     width: 100%;
     outline: none;

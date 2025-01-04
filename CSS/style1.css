@@ -15,6 +15,7 @@ body
     align-items: center;
     min-height: 100vh;
     background: #222;
+    /*overflow-x: hidden;*/
 }
 
 #container {
@@ -91,3 +92,7 @@ a::after
     border-radius: 48px;
 
 }
+
+
+
+  
