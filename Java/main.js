@@ -1,3 +1,5 @@
+import WindowManager from './windowManager.js'
+
 const t = THREE;
 let camera, scene, renderer, world;
 let near, far;
