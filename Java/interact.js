@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
     let index = 0;
 
     let commands = "";
-
+/*
     fetch('commands.json')
         .then(response => response.json())
         .then(data => {
@@ -19,6 +19,28 @@ window.addEventListener("load", () => {
         .catch(error => {
             console.error("Hiba a parancsok betöltése közben:", error);
         });
+*/
+        function loadCommands() {
+            fetch('commands.json')
+                .then(response => {
+                    if (!response.ok) throw new Error("HTTP hiba: " + response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    commands = data;
+                    console.log("Parancsok sikeresen betöltve.");
+                })
+                .catch(error => {
+                    console.error("Hiba a parancsok betöltése közben:", error);
+                    retryCount++;
+                    if (retryCount <= 5) {
+                        console.log(`Újrapróbálás ${retryCount}. alkalommal...`);
+                        setTimeout(loadCommands, 5000); 
+                    } else {
+                        console.error("A parancsok betöltése sikertelen. Kérjük, frissítse az oldalt.");
+                    }
+                });
+        }
 
 
     setTimeout(() => {

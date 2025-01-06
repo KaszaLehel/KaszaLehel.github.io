@@ -2,7 +2,7 @@
 window.addEventListener("load", () => {
 
     if (window.innerWidth <= 1024 || window.innerHeight <= 600) {
-        alert("Can be opened a full screen page.");
+        alert("Can be opened in a full screen page.");
         window.location.href = "https://kaszalehel.github.io/";
     }
     console.log(window.innerWidth, window.innerHeight);
