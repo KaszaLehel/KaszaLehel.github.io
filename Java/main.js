@@ -1,16 +1,16 @@
 
 window.addEventListener("load", () => {
 
+    const userAgent = navigator.userAgent.toLowerCase();
+    if (/android|iphone|ipad|ipod|blackberry|opera mini|iemobile|mobile|tablet/.test(userAgent)) {
+        document.body.innerHTML = "<h1>Can only be opened on a computer and in full screen page.</h1>";
+    }
+
     if (window.innerWidth <= 1024 || window.innerHeight <= 600) {
         alert("Can be opened in a full screen page.");
         window.location.href = "https://kaszalehel.github.io/";
     }
     console.log(window.innerWidth, window.innerHeight);
-
-    const userAgent = navigator.userAgent.toLowerCase();
-    if (/android|iphone|ipad|ipod|blackberry|opera mini|iemobile|mobile|tablet/.test(userAgent)) {
-        document.body.innerHTML = "<h1>Can only be opened on a computer and in full screen page.</h1>";
-    }
 
     const felsoTerminal = document.getElementById("felso-terminal");
     const iras = document.getElementById("iras");

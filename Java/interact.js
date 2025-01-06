@@ -10,7 +10,8 @@ window.addEventListener("load", () => {
     let index = 0;
 
     let commands = "";
-/*
+    let retryCount = 0;
+/*  
     fetch('commands.json')
         .then(response => response.json())
         .then(data => {
@@ -28,7 +29,7 @@ window.addEventListener("load", () => {
                 })
                 .then(data => {
                     commands = data;
-                    console.log("Parancsok sikeresen betöltve.");
+                    console.log(commands);
                 })
                 .catch(error => {
                     console.error("Hiba a parancsok betöltése közben:", error);
