@@ -37,7 +37,7 @@ window.addEventListener("load", () => {
 
     input.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
-            let userInput = input.value.trim();
+            let userInput = input.value.trim().toLowerCase();
             input.value = ''; 
 
             output.innerHTML += `C:/> ${userInput}\n`;
