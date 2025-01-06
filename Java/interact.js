@@ -122,6 +122,7 @@ window.addEventListener("load", () => {
     }
 
     function limitOutputLines() {
+     /*   
         const terminalHeight = terminal.clientHeight;
         const lineHeight = parseFloat(window.getComputedStyle(output).lineHeight);
         const maxLines = Math.floor(terminalHeight / lineHeight)-2;
@@ -131,14 +132,35 @@ window.addEventListener("load", () => {
         if (lines.length > maxLines) {
             output.innerHTML = lines.slice(lines.length - maxLines).join('\n');
         }
+
         output.scrollTop = output.scrollHeight;
+        */
+
+        while (output.scrollHeight > terminal.clientHeight) {
+            let lines = output.innerText.split('\n');
+            lines.shift(); // Első sort töröljük
+            output.innerText = lines.join('\n');
+        }
     }
 
-    window.addEventListener('resize', limitOutputLines);
+    window.addEventListener('resize', () => {
+        const currentWidth = window.innerWidth;
+        const currentHeight = window.innerHeight;
+    
+        if (currentWidth !== lastWidth || currentHeight !== lastHeight) {
+            console.log(`Ablakméret változott: Szélesség: ${currentWidth}px, Magasság: ${currentHeight}px`);
+            lastWidth = currentWidth;
+            lastHeight = currentHeight;
+
+            output.scrollTop = output.scrollHeight;
+            limitOutputLines();
+        }
+    });
 
     input.addEventListener('blur', limitOutputLines);
     input.addEventListener('focus', limitOutputLines);
 
+    output.scrollTop = output.scrollHeight;
     limitOutputLines();
 
 

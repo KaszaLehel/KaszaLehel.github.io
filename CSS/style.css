@@ -125,6 +125,7 @@ body {
 #input-line {
     display: flex;
     align-items: center;
+    margin-top: auto;
 }
 
 #input-line.invisible
