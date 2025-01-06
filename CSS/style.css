@@ -3,84 +3,462 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-body
-{
+body {
+    display: flex;
+    height: 100vh; 
+    padding: 10px; 
+    gap: 10px;
+    background-color: #222;
+    overflow: hidden;
+}
+
+#felso-terminal, #kozepso-terminal, #oldalso-termianl, #felso-ido, #azonosito, .doubleplus-icon, #autodecount, #autodecount1, #berserk{
+    opacity: 0;
+    transform: scale(0);
+    border: 1px solid transparent;
+    transition: opacity 1s, transform 1s;
+}
+
+/* KOZEPSO CONTAINER */
+
+#kozepso-container {
+    display: flex;
+    flex-direction: column;
+    width: 75%; 
+    height: 100%;
+    gap: 10px; 
+}
+
+/* OLDALSO TERMINAL */
+
+#oldalso-termianl {
+    width: 25%; 
+    height: 100%;
+    background-color: #222;
+    color: #0f0;
+    text-align: center;
+    line-height: 50px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #050505;   
+    align-items: flex-start;
+    position: relative;
 }
 
-.cube
+#line {
+    width: 2px;
+    height: 0;
+    margin-top: 5%;
+    background-color:rgba(255, 76, 37, 0.7);
+    box-shadow: 0 0 5px rgba(255, 76, 37, 0.7);
+    position: absolute;
+    left: 6%;
+    transform: translateX(-50%);
+}
+
+#horizontalLine
+{ 
+    width: 0; 
+    height: 2px; 
+    left: 6%;
+    margin-top: 5%;
+    background-color:rgba(255, 76, 37, 0.7);
+    box-shadow: 0 0 5px rgba(255, 76, 37, 0.7);
+    position: absolute;
+}
+
+#berserk
+{
+    width: 70%;
+    height: 10%;
+    margin-top: 5%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 100%;
+    font-weight: bold;
+    border: 2px solid #ff4c25;
+    box-shadow: 0 0 5px #ff4c25;
+    text-shadow:0 0 5px rgba(0, 255, 0, 1);
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+#commands
+{
+    width: 80%;
+    height: 75%;
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    padding:2%;
+    margin: 0;
+    overflow: hidden;
+    font-size: min(2vw, 2vh);
+    border: 2px solid rgba(0, 255, 0, 0.7);
+    text-shadow:0 0 10px rgba(0, 255, 0, 1);
+    text-align: left;
+    line-height: 1;
+
+    opacity: 0;
+}
+
+#commands.visible
+{
+    opacity: 1;
+}
+
+#output {
+    width: 100%;
+    white-space: pre-wrap;
+    line-height: 1.5em;
+}
+
+#input-line {
+    display: flex;
+    align-items: center;
+}
+
+#input-line.invisible
+{
+    display: none;
+}
+#input {
+    background: transparent;
+    border: none;
+    color: #0f0;
+    text-decoration: none !important;
+    /*font-weight: bold;*/
+    font-size: 1em;
+    width: 100%;
+    outline: none;
+}
+input:invalid
+{
+    text-decoration: none !important;
+}
+input:focus
+{
+    outline: none;
+}
+
+input, textarea {
+    caret-color: #0f0; 
+}
+
+/* FELSO TERMINAL */
+
+#felso-terminal {
+    height: 10%; 
+    background-color: #222;
+    color: #0f0;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+#iras{
+    height: 100%;
+    width: 80%;
+    background-color: #222;
+    color: #ff4c25;
+    text-shadow: 0 0 5px rgba(255, 76, 37, 1);
+    display: flex;
+    text-align: left;
+    align-items: center;
+    padding-left: 15%;
+    justify-content: flex-start;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: min(2vw, 2vh);
+    line-height: 1; 
+    position: relative;
+    overflow: hidden;
+}
+
+#felso-ido {
+    height: 30%;
+    width: 20%;
+    background-color: #222; 
+    color:#0f0;
+    text-shadow: 0 0 5px #0f0;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    /*font-weight: bold;*/
+    font-size: min(1vw, 1.5vh);
+    line-height: 1;
+    position: absolute;   
+    bottom: 4px;          
+    right: 4px; 
+    overflow: hidden;
+}
+
+/* KOZEPSO TERMINAL */
+
+#kozepso-terminal {
+    height: 90%; 
+    background-color: #222;
+    color: black;
+    text-align: center;
+    line-height: 5;
+    position: relative;
+    overflow: hidden;
+}
+
+#jobb-felso
+{
+    position: absolute;
+    width: 7vw;
+    height: 7vw;
+    aspect-ratio: 1;
+    /*border: 2px solid rgba(0, 255, 0, 0.5);*/
+    top: 2%;                          
+    left: 2%;
+}
+
+#bal-felso
+{
+    position: absolute;
+    width: 7vw;
+    height: 7vw;
+    aspect-ratio: 1;
+    /*border: 2px solid rgba(0, 255, 0, 1);*/
+    top: 2%;                          
+    right: 2%;
+}
+
+.doubleplus-icon
 {
     position: relative;
-    width: 300px;
-    height: 300px;
-    transform-style: preserve-3d;
-    animation: animate 4s linear infinite;
-}
-
-@keyframes animate
-{
-    0%
-    {
-        transform: rotateX(-30deg) rotateY(0deg);
-    }
-    100%
-    {
-        transform: rotateX(-30deg) rotateY(360deg);
-    }
-}
-
-.cube div
-{
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    transform-style: preserve-3d;
 }
 
-.cube div span
+/* PLUS ICONS */
+
+.up-one, .up-twoe, .left-one, .left-twoe, .right-one, .right-twoe, .bottom-one, .bottom-twoe
 {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(#151515, #00ec00);
-    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+    background-color: rgba(255, 76, 37, 0.5);
+    box-shadow: 0 0 5px rgba(255, 76, 37, 0.5);
+    border-radius: 1px;
 }
 
-.top
+.up-one
 {
-    position: absolute;
+    width: 5%;
+    height: 45%;
+    left: 45%;
     top: 0;
-    left: 0;
-    width: 300px;
-    height: 300px;
-    background: #222;
-    transform: rotateX(90deg) translateZ(150px);
+    /*transform: translateY(-50%, -50%);*/
 }
-.top::before
+.up-twoe
 {
-    content: '';
-    position: absolute;
+    width: 5%;
+    height: 45%;
+    left: 55%;
     top: 0;
-    left: 0;
-    width: 300px;
-    height: 300px;
-    background: #0f0;
-    transform: translateZ(-380px);
-    filter: blur(20px);
-    box-shadow: 0, 0, 120px rgba(0, 255, 0, 0.2), 
-                0, 0, 200px rgba(0, 255, 0, 0.4),
-                0, 0, 300px rgba(0, 255, 0, 0.6),
-                0, 0, 400px rgba(0, 255, 0, 0.8),
-                0, 0, 500px rgba(0, 255, 0, 1);
+    /*transform: translateY(-50%, -50%);*/
+}
+.bottom-one
+{
+    width: 5%;
+    height: 50%;
+    left: 45%;
+    top: 50%;
+    /*transform: translateY(-50%, -50%);*/
+}
+.bottom-twoe
+{
+    width: 5%;
+    height: 50%;
+    left: 55%;
+    top: 50%;
+    /*transform: translateY(-0%, -50%);*/
+}
 
+.left-one
+{
+    width: 40%;
+    height: 5%;
+    left: 60%;
+    top: 50%;
+}
+
+.left-twoe
+{
+    width: 40%;
+    height: 5%;
+    left: 60%;
+    top: 40%;
+}
+
+.right-one
+{
+    width: 45%;
+    height: 5%;
+    right: 55%;
+    top: 40%;
+}
+.right-twoe
+{
+    width: 45%;
+    height: 5%;
+    right: 55%;
+    top: 50%;
+}
+
+#jobb-also
+{
+    position: absolute;
+    width: 7vw;
+    height: 7vw;
+    aspect-ratio: 1;
+    /*border: 2px solid rgba(0, 255, 0, 0.5);*/
+    bottom: 2%;                          
+    right: 2%;
+}
+
+#bal-also
+{
+    position: absolute;
+    width: 7vw;
+    height: 7vw;
+    aspect-ratio: 1;
+    /*border: 2px solid rgba(0, 255, 0, 0.5);*/
+    bottom: 2%;                          
+    left: 2%;
+}
+
+#azonosito
+{
+    position: absolute;
+    width: 12%;
+    height: 4%;
+    /*border: 2px solid rgba(0, 255, 0, 0.5);*/
+    top: 10%;
+    left: 15%;
+    color:#0f0;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 1);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: min(1vw, 1.5vh);
+    line-height: 1;
+    overflow: hidden;
+}
+
+#autodecount
+{
+    position: absolute;
+    width: 12%;
+    height: 4%;
+    color:rgba(0, 255, 0, 1);
+    text-shadow: 0 0 5px rgba(0, 255, 0, 1);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: min(1vw, 1.5vh);
+    line-height: 1;
+    bottom: 25%;
+    right: 1%;
+    overflow: hidden;
+}
+
+#autodecount1
+{
+    position: absolute;
+    width: 12%;
+    height: 4%;
+    color:#0f0;
+    text-shadow:0 0 5px rgba(0, 255, 0, 1);
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: min(1vw, 1.5vh);
+    line-height: 1;
+    bottom: 28%;
+    right: 1%;
+    overflow: hidden;
+    /*border: 2px solid rgba(0, 255, 0, 0.5);*/
+}
+
+/* MIDLE CONTENT */
+
+#content
+{
+    width: 70%;
+    height: 70%;
+    border: 2px solid rgba(0, 255, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color:#0f0;
+    text-shadow:0 0 5px rgba(0, 255, 0, 1);
+    overflow: hidden;
+}
+
+
+
+
+/* BORDER */
+
+@keyframes borderRun {
+    from {
+        border-color: transparent;
+    }
+    to {
+        border-color: rgba(0, 255, 0, 0.7);
+        box-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+    }
+}
+
+@keyframes borderRunOrange {
+    from {
+        border-color: transparent;
+    }
+    to {
+        border-color:rgba(255, 76, 37, 0.7);
+        box-shadow: 0 0 5px rgba(255, 76, 37, 0.7);
+    }
+}
+
+
+/* KURZOR */
+
+#cursor {
+    display: inline-block;
+    width: 5px;
+    height: 1em;
+    background-color: #ff4c25;
+    box-shadow: 0 0 10px rgba(255, 76, 37, 1);
+    margin-left: 2px;
+    animation: blink 1s steps(2) infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }

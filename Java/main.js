@@ -1,195 +1,214 @@
-import WindowManager from './windowManager.js'
 
-const t = THREE;
-let camera, scene, renderer, world;
-let near, far;
-let pixR = window.devicePixelRatio ? window.devicePixelRatio : 1;
-let cubes = [];
-let sceneOffsetTarget = {x: 0, y: 0};
-let sceneOffset = {x: 0, y: 0};
+window.addEventListener("load", () => {
 
-let today = new Date();
-today.setHours(0);
-today.setMinutes(0);
-today.setSeconds(0);
-today.setMilliseconds(0);
-today = today.getTime();
+    if (window.innerWidth <= 1024 || window.innerHeight <= 600) {
+        alert("Ez az oldal csak asztali számítógépen érhető el.");
+        window.location.href = "https://kaszalehel.github.io/";
+    }
+    console.log(window.innerWidth, window.innerHeight);
 
-let internalTime = getTime();
-let windowManager;
-let initialized = false;
+    const felsoTerminal = document.getElementById("felso-terminal");
+    const iras = document.getElementById("iras");
+    const kozepsoTerminal = document.getElementById("kozepso-terminal");
+    const oldalsoTerminal = document.getElementById("oldalso-termianl");
+    const felsoIdo = document.getElementById("felso-ido");
 
-// get time in seconds since beginning of the day (so that all windows use the same time)
-function getTime ()
-{
-	return (new Date().getTime() - today) / 1000.0;
-}
+    const module = document.getElementById("azonosito");
+    const autodecount = document.getElementById("autodecount");
+    const autodecount1 = document.getElementById("autodecount1");
+    const berserk = document.getElementById("berserk");
 
+    const doubleplusIcons = document.querySelectorAll(".doubleplus-icon");
+    console.log(doubleplusIcons);
 
-if (new URLSearchParams(window.location.search).get("clear"))
-{
-	localStorage.clear();
-}
-else
-{	
-	// this code is essential to circumvent that some browsers preload the content of some pages before you actually hit the url
-	document.addEventListener("visibilitychange", () => 
-	{
-		if (document.visibilityState != 'hidden' && !initialized)
-		{
-			init();
-		}
-	});
+    const line = document.getElementById("line");
+    const horizontalLine = document.getElementById("horizontalLine");
+    let height = 0;
+    let width = 0;
+    let maxHeight; 
+    let maxWidth;
 
-	window.onload = () => {
-		if (document.visibilityState != 'hidden')
-		{
-			init();
-		}
-	};
+    const message = "Initiating terminal K.Lehel..."; 
+    const moduleMessage = "module";
+    let autodecountMessage = "";
+    const autodecountMessage1 = "request";
 
-	function init ()
-	{
-		initialized = true;
+    let index = 0;
+    let moduleIndex = 0;
+    let autodecountIndex = 0;
+    let autodecountIndex1 = 0;
 
-		// add a short timeout because window.offsetX reports wrong values before a short period 
-		setTimeout(() => {
-			setupScene();
-			setupWindowManager();
-			resize();
-			updateWindowShape(false);
-			render();
-			window.addEventListener('resize', resize);
-		}, 500)	
-	}
+    const cursor = document.createElement("span");
+    cursor.id = "cursor";
+    iras.appendChild(cursor);
 
-	function setupScene ()
-	{
-		camera = new t.OrthographicCamera(0, 0, window.innerWidth, window.innerHeight, -10000, 10000);
-		
-		camera.position.z = 2.5;
-		near = camera.position.z - .5;
-		far = camera.position.z + 0.5;
+    setTimeout(() => {
+        showWithBorder(felsoTerminal, () => {
 
-		scene = new t.Scene();
-		scene.background = new t.Color(0.0);
-		scene.add( camera );
+        });
 
-		renderer = new t.WebGLRenderer({antialias: true, depthBuffer: true});
-		renderer.setPixelRatio(pixR);
-	    
-	  	world = new t.Object3D();
-		scene.add(world);
+    }, 0);
 
-		renderer.domElement.setAttribute("id", "scene");
-		document.body.appendChild( renderer.domElement );
-	}
+    setTimeout(() => {
+        showWithBorder(felsoIdo);
+        showWithBorder(module);
+        showWithBorder(autodecount);
+        showOrangeBorder(berserk);
+        animateLine();
 
-	function setupWindowManager ()
-	{
-		windowManager = new WindowManager();
-		windowManager.setWinShapeChangeCallback(updateWindowShape);
-		windowManager.setWinChangeCallback(windowsUpdated);
+        autodecount1.style.opacity = "1";
+        autodecount1.style.transform = "scale(1)"
 
-		// here you can add your custom metadata to each windows instance
-		let metaData = {foo: "bar"};
+        doubleplusIcons.forEach(icon => {
+            icon.style.opacity = "1";
+            icon.style.transform = "scale(1)";
+        });
 
-		// this will init the windowmanager and add this window to the centralised pool of windows
-		windowManager.init(metaData);
+    }, 750);
 
-		// call update windows initially (it will later be called by the win change callback)
-		windowsUpdated();
-	}
+    setTimeout(() => {
+        showWithBorder(kozepsoTerminal);
+    }, 125);
 
-	function windowsUpdated ()
-	{
-		updateNumberOfCubes();
-	}
+    setTimeout(() => {
+        showWithBorder(oldalsoTerminal);   
+        
+    }, 250);
 
-	function updateNumberOfCubes ()
-	{
-		let wins = windowManager.getWindows();
+    setTimeout(typeText, 1000);
+    setTimeout(updateTime, 1750); 
+    setTimeout(typeModuel, 1750);
+    setTimeout(typeAuto, 1750);
+    setTimeout(() => {
+        maxHeight = 20; //oldalsoTerminal.offsetHeight * 0.2; 
+        maxWidth = 5; //oldalsoTerminal.offsetWidth * 0.05;
+        animateLine(); 
+    }, 1500);
 
-		// remove all cubes
-		cubes.forEach((c) => {
-			world.remove(c);
-		})
+    function showWithBorder(element, callback) {
+        element.style.opacity = "1";
+        element.style.transform = "scale(1)";
+        element.style.border = "2px solid rgba(0, 255, 0, 0.7)";
+        element.style.animation = "borderRun 0.5s forwards";
+        if (callback) setTimeout(callback, 500);
+    }
 
-		cubes = [];
+    function showOrangeBorder(element, callback){
+        element.style.opacity = "1";
+        element.style.transform = "scale(1)";
+        element.style.border = "2px solid rgba(255, 76, 37, 0.7)";
+        element.style.animation = "borderRunOrange 0.5s forwards";
+        if (callback) setTimeout(callback, 500);
+    }
 
-		// add new cubes based on the current window setup
-		for (let i = 0; i < wins.length; i++)
-		{
-			let win = wins[i];
+    function typeText()
+    {
+        if (index < message.length) 
+        {
+            iras.textContent += message[index];
+            iras.appendChild(cursor);
+            index++;
+            setTimeout(typeText, 75); 
+        }else
+        {
+            setTimeout(() => {
+                cursor.style.opacity = 0;
+                cursor.style.animation = "none";
+            }, 1000);
+        }
+    }
 
-			let c = new t.Color();
-			c.setHSL(i * .1, 1.0, .5);
+    function typeModuel()
+    {
+        if(moduleIndex < moduleMessage.length)
+        {
+            module.textContent += moduleMessage[moduleIndex];
+            moduleIndex++;
+            setTimeout(typeModuel, 100);
+        }
+    }
 
-			let s = 100 + i * 50;
-			let cube = new t.Mesh(new t.BoxGeometry(s, s, s), new t.MeshBasicMaterial({color: c , wireframe: true}));
-			cube.position.x = win.shape.x + (win.shape.w * .5);
-			cube.position.y = win.shape.y + (win.shape.h * .5);
+    fetch("https://api.ipify.org?format=json")
+    .then(response => response.json())
+    .then(data => {
+        autodecountMessage = `${data.ip}`;
+        setTimeout(typeAutodecount, 1750); 
+    })
+    .catch(error => {
+        console.error("IP lekérése sikertelen:", error);
+        autodecountMessage = "125.24.26.365";
+        setTimeout(typeAutodecount, 1750);
+    });
 
-			world.add(cube);
-			cubes.push(cube);
-		}
-	}
+    function typeAutodecount()
+    {
+        if(autodecountIndex< autodecountMessage.length)
+        {
+            autodecount.textContent += autodecountMessage[autodecountIndex];
+            autodecountIndex++;
+            setTimeout(typeAutodecount, 100);
+        }
+    }
 
-	function updateWindowShape (easing = true)
-	{
-		// storing the actual offset in a proxy that we update against in the render function
-		sceneOffsetTarget = {x: -window.screenX, y: -window.screenY};
-		if (!easing) sceneOffset = sceneOffsetTarget;
-	}
-
-
-	function render ()
-	{
-		let t = getTime();
-
-		windowManager.update();
-
-
-		// calculate the new position based on the delta between current offset and new offset times a falloff value (to create the nice smoothing effect)
-		let falloff = .05;
-		sceneOffset.x = sceneOffset.x + ((sceneOffsetTarget.x - sceneOffset.x) * falloff);
-		sceneOffset.y = sceneOffset.y + ((sceneOffsetTarget.y - sceneOffset.y) * falloff);
-
-		// set the world position to the offset
-		world.position.x = sceneOffset.x;
-		world.position.y = sceneOffset.y;
-
-		let wins = windowManager.getWindows();
-
-
-		// loop through all our cubes and update their positions based on current window positions
-		for (let i = 0; i < cubes.length; i++)
-		{
-			let cube = cubes[i];
-			let win = wins[i];
-			let _t = t;// + i * .2;
-
-			let posTarget = {x: win.shape.x + (win.shape.w * .5), y: win.shape.y + (win.shape.h * .5)}
-
-			cube.position.x = cube.position.x + (posTarget.x - cube.position.x) * falloff;
-			cube.position.y = cube.position.y + (posTarget.y - cube.position.y) * falloff;
-			cube.rotation.x = _t * .5;
-			cube.rotation.y = _t * .3;
-		};
-
-		renderer.render(scene, camera);
-		requestAnimationFrame(render);
-	}
+    function typeAuto()
+    {
+        if(autodecountIndex1< autodecountMessage1.length)
+        {
+            autodecount1.textContent += autodecountMessage1[autodecountIndex1];
+            autodecountIndex1++;
+            setTimeout(typeAuto, 100);
+        }
+    }
 
 
-	// resize the renderer to fit the window size
-	function resize ()
-	{
-		let width = window.innerWidth;
-		let height = window.innerHeight
-		
-		camera = new t.OrthographicCamera(0, width, 0, height, -10000, 10000);
-		camera.updateProjectionMatrix();
-		renderer.setSize( width, height );
-	}
-}
+    function animateLine() {
+
+        verticalStep();
+
+        function verticalStep() {
+            if (height < maxHeight) {
+                height += 0.7;
+                line.style.height = height + "%";
+                requestAnimationFrame(verticalStep);
+            } else {
+                horizontalLine.style.top = maxHeight + "%"; 
+                requestAnimationFrame(horizontalStep);
+            }
+        }
+    
+        function horizontalStep() {
+            if (width < maxWidth) {
+                width += 0.7;
+                horizontalLine.style.width = width + "%";
+                requestAnimationFrame(horizontalStep);
+            }
+        }
+        
+    }
+
+
+    function updateTime() {
+        const now = new Date();
+        let hours = String(now.getHours()).padStart(2, "0");
+        let minutes = String(now.getMinutes()).padStart(2, "0");
+        let seconds = String(now.getSeconds()).padStart(2, "0");
+        let timeString = `opened: ${hours}:${minutes}:${seconds}`;
+
+        let timeIndex = 0;
+
+        function typeTime() {
+            if (timeIndex < timeString.length) {
+                felsoIdo.textContent += timeString[timeIndex];
+                timeIndex++;
+                setTimeout(typeTime, 75);
+            }
+        }
+
+        
+        felsoIdo.textContent = ""; 
+        typeTime();
+    }
+
+
+});
+
