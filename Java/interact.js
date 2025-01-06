@@ -36,13 +36,14 @@ window.addEventListener("load", () => {
                     retryCount++;
                     if (retryCount <= 5) {
                         console.log(`Újrapróbálás ${retryCount}. alkalommal...`);
-                        setTimeout(loadCommands, 5000); 
+                        setTimeout(loadCommands, 1500); 
                     } else {
                         console.error("A parancsok betöltése sikertelen. Kérjük, frissítse az oldalt.");
                     }
                 });
         }
-
+    
+    loadCommands();
 
     setTimeout(() => {
         terminal.classList.add('visible');
