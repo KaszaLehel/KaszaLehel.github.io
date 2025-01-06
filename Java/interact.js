@@ -39,7 +39,7 @@ window.addEventListener("load", () => {
             let userInput = input.value.trim();
             input.value = ''; 
 
-            output.innerHTML += `C:\> ${userInput}\n`;
+            output.innerHTML += `C:/> ${userInput}\n`;
 
             if (userInput === 'exit' || userInput === 'Exit') {
                 typeMessage(commands[userInput] + '\n');
@@ -48,16 +48,22 @@ window.addEventListener("load", () => {
                     console.log("EXIT");
                     //window.location.href = 'index.html';
                 }, 1500); 
-            } else if (commands[userInput]) {
+            }else if(userInput === 'help' || userInput === 'Help'){
+                listCommands();
+            }else if (commands[userInput]) {
                 typeMessage(commands[userInput] + '\n');
             } else {
                 typeMessage('Error: Invalid command. Type "help" for a list of commands.\n');
             }
-
             output.scrollTop = output.scrollHeight;
             limitOutputLines();
         }
     });
+
+    function listCommands() {
+        let commandList = Object.keys(commands).join('\n');
+        typeMessage(`++${commandList}++\n`);
+    }
 
     function typeMessage(message, speed = 60, callback = null) {
         isTyping = true; 
