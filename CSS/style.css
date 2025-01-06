@@ -17,7 +17,7 @@ body {
     padding: 10px; 
     gap: 10px;
     background-color: #222;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 #felso-terminal, #kozepso-terminal, #oldalso-termianl, #felso-ido, #azonosito, .doubleplus-icon, #autodecount, #autodecount1, #berserk{
