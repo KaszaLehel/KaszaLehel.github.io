@@ -52,7 +52,11 @@ window.addEventListener("load", () => {
             }else if(userInput === 'help' || userInput === 'Help'){
                 listCommands();
             }else if (commands[userInput]) {
-                typeMessage(commands[userInput].short + '\n');
+                typeMessage(commands[userInput].short + '\n', 60, () => {
+                    setTimeout(() => {
+                        content.innerHTML = commands[userInput].long;
+                    }, 1000);
+                });
             } else {
                 typeMessage('Error: Invalid command. Type "help" for a list of commands.\n');
             }
@@ -63,7 +67,7 @@ window.addEventListener("load", () => {
 
     function listCommands() {
         let commandList = Object.keys(commands).map(command => `++${command}++`).join('\n');
-        typeMessage(`Available commands:\n${commandList}\n`);
+        typeMessage(`Available commands:\n\n${commandList}\n\n`);
     }
 
     function typeMessage(message, speed = 60, callback = null) {

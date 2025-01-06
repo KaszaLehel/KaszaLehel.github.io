@@ -97,12 +97,12 @@ body {
     padding:2%;
     margin: 0;
     overflow: hidden;
+    /*font-size: min(1vw, 1.5vh);*/
     font-size: min(2vw, 2vh);
     border: 2px solid rgba(0, 255, 0, 0.7);
     text-shadow:0 0 10px rgba(0, 255, 0, 1);
     text-align:justify;
     line-height: 1;
-
     opacity: 0;
 }
 
@@ -130,6 +130,7 @@ body {
     background: transparent;
     border: none;
     color: #0f0;
+    text-shadow:0 0 10px rgba(0, 255, 0, 1);
     text-decoration: none !important;
     /*font-weight: bold;*/
     font-size: 1em;
