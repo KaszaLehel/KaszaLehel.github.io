@@ -109,8 +109,7 @@ window.addEventListener("load", () => {
                 typingTimeout = setTimeout(type, speed); 
             } else {
                 inputLine.classList.remove('invisible');
-                isTyping = false; 
-                //inputLine.disabled = false; 
+                isTyping = false;  
                 input.focus(); 
                 if (callback) {
                     callback(); 
@@ -138,30 +137,21 @@ window.addEventListener("load", () => {
 
         while (output.scrollHeight > terminal.clientHeight) {
             let lines = output.innerText.split('\n');
-            lines.shift(); // Első sort töröljük
+            let excessLines = Math.ceil((output.scrollHeight - terminal.clientHeight) / parseFloat(window.getComputedStyle(output).lineHeight));
+            
+            lines = lines.slice(excessLines);
             output.innerText = lines.join('\n');
         }
+        
     }
 
     window.addEventListener('resize', () => {
         const currentWidth = window.innerWidth;
         const currentHeight = window.innerHeight;
-    
-        if (currentWidth !== lastWidth || currentHeight !== lastHeight) {
-            console.log(`Ablakméret változott: Szélesség: ${currentWidth}px, Magasság: ${currentHeight}px`);
-            lastWidth = currentWidth;
-            lastHeight = currentHeight;
-
-            output.scrollTop = output.scrollHeight;
-            limitOutputLines();
-        }
+        console.log(`Ablakméret változott: Szélesség: ${currentWidth}px, Magasság: ${currentHeight}px`);
+        output.scrollTop = output.scrollHeight;
+        limitOutputLines();
     });
 
-    input.addEventListener('blur', limitOutputLines);
-    input.addEventListener('focus', limitOutputLines);
-
-    output.scrollTop = output.scrollHeight;
     limitOutputLines();
-
-
 });
