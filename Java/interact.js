@@ -43,7 +43,7 @@ window.addEventListener("load", () => {
             output.innerHTML += `C:/> ${userInput}\n`;
 
             if (userInput === 'exit' || userInput === 'Exit') {
-                typeMessage(commands[userInput] + '\n');
+                typeMessage(commands[userInput].short + '\n');
                 input.disabled = true;
                 setTimeout(() => {
                     console.log("EXIT");
