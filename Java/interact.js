@@ -136,5 +136,8 @@ window.addEventListener("load", () => {
 
     window.addEventListener('resize', limitOutputLines);
 
+    input.addEventListener('blur', limitOutputLines);
+    input.addEventListener('focus', limitOutputLines);
+
 
 });
