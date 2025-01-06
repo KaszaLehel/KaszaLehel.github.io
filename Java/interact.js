@@ -139,5 +139,7 @@ window.addEventListener("load", () => {
     input.addEventListener('blur', limitOutputLines);
     input.addEventListener('focus', limitOutputLines);
 
+    limitOutputLines();
+
 
 });
