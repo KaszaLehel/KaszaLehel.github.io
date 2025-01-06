@@ -69,13 +69,13 @@ window.addEventListener("load", () => {
         isTyping = true; 
         let index =0;
         currentMessage = message;
-        //inputLine.disabled = true;
         inputLine.classList.add('invisible');
 
         function type() {
             if (index < message.length) {
                 output.innerHTML += message.charAt(index);
                 index++;
+                limitOutputLines();
                 typingTimeout = setTimeout(type, speed); 
             } else {
                 inputLine.classList.remove('invisible');
