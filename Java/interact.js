@@ -61,8 +61,8 @@ window.addEventListener("load", () => {
     });
 
     function listCommands() {
-        let commandList = Object.keys(commands).join('\n');
-        typeMessage(`++${commandList}++\n`);
+        let commandList = Object.keys(commands).map(command => `++${command}++`).join('\n');
+        typeMessage(`Available commands:\n${commandList}\n`);
     }
 
     function typeMessage(message, speed = 60, callback = null) {
