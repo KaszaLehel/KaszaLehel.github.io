@@ -1,7 +1,22 @@
 {
-    "help": "Available commands: ",
-    "information": "Informations are under loading...",
-    "berserk":"Berserk is loading...",
-    "exit": "Exiting...",
-    "projects": "Projects are under uploading...."
+    "help": {
+        "short": "Available commands: help, projects, informations, exit",
+        "long": "The following commands are available: 'help' (shows the list of commands), 'projects' (shows project information), 'informations' (shows loading information), 'exit' (exits the terminal)."
+    },
+    "information": {
+        "short": "Informations are under loading...",
+        "long": "The information you are looking for is currently being processed and will be available soon."
+    },
+    "berserk": {
+        "short": "Berserk is loading...",
+        "long": "The Berserk section is under development, please wait until it's ready to be shown."
+    },
+    "exit": {
+        "short": "Exiting...",
+        "long": "The system will now shut down. Please wait while we exit the terminal."
+    },
+    "projects": {
+        "short": "Projects are under uploading....",
+        "long": "The projects are currently being uploaded to the server. It will take a few moments to complete this process."
+    }
 }

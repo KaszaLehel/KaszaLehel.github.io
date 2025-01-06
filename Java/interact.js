@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
     const input = document.getElementById("input");
     const inputLine = document.getElementById("input-line");
     const terminal = document.getElementById("commands");
+    const content = document.getElementById("content");
 
 
     let currentMessage = "";
@@ -51,7 +52,7 @@ window.addEventListener("load", () => {
             }else if(userInput === 'help' || userInput === 'Help'){
                 listCommands();
             }else if (commands[userInput]) {
-                typeMessage(commands[userInput] + '\n');
+                typeMessage(commands[userInput].short + '\n');
             } else {
                 typeMessage('Error: Invalid command. Type "help" for a list of commands.\n');
             }
@@ -75,6 +76,7 @@ window.addEventListener("load", () => {
             if (index < message.length) {
                 output.innerHTML += message.charAt(index);
                 index++;
+                output.scrollTop = output.scrollHeight;
                 limitOutputLines();
                 typingTimeout = setTimeout(type, speed); 
             } else {
@@ -101,6 +103,7 @@ window.addEventListener("load", () => {
         if (lines.length > maxLines) {
             output.innerHTML = lines.slice(lines.length - maxLines).join('\n');
         }
+        output.scrollTop = output.scrollHeight;
     }
 
     window.addEventListener('resize', limitOutputLines);
