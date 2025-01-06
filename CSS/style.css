@@ -114,7 +114,7 @@ body {
 #output {
     width: 100%;
     white-space: pre-wrap;
-    line-height: 1.5em;
+    line-height: 1.7em;
 }
 
 #input-line {
@@ -129,8 +129,8 @@ body {
 #input {
     background: transparent;
     border: none;
-    color: #0f0;
-    text-shadow:0 0 10px rgba(0, 255, 0, 1);
+    color: rgba(0, 255, 0, 0.7);
+    text-shadow:0 0 10px rgba(0, 255, 0, 0.7);
     text-decoration: none !important;
     /*font-weight: bold;*/
     font-size: 1em;
