@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
         });
 */
         function loadCommands() {
-            fetch('commands.json')
+            fetch('JSON/commands.json')
                 .then(response => {
                     if (!response.ok) throw new Error("HTTP hiba: " + response.status);
                     return response.json();
