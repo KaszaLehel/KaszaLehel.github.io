@@ -67,11 +67,12 @@ window.addEventListener("load", () => {
             output.innerHTML += `C:/> ${userInput}\n`;
 
             if (userInput === 'exit' || userInput === 'Exit') {
+                console.log("EXIT");
                 typeMessage(commands[userInput].short + '\n');
+                content.innerHTML = commands[userInput].long;
                 input.disabled = true;
                 setTimeout(() => {
-                    console.log("EXIT");
-                    //window.location.href = 'index.html';
+                    window.location.href = 'index.html';
                 }, 1500); 
             }else if(userInput === 'help' || userInput === 'Help'){
                 listCommands();

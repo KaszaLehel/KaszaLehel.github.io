@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('mousemove', function (event) {
         tgX = event.clientX;
         tgY = event.clientY;
-        console.log(event.clientX);
     });
 
     move();
