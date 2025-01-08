@@ -1,3 +1,4 @@
+
 #content /*DIV*/
 {
     z-index: 100;
@@ -17,11 +18,14 @@
 
 .maincontent /*DIV*/
 {
-    border: 1px solid #0F0;  /*----------- BORDER ------------------*/
+    /*border: 1px solid #0F0; */ /*----------- BORDER ------------------*/
+    background-color: rgba(207, 208, 191, 0);
+    border-radius: 40px;
     position: absolute;
     width: 96%;
-    height: 80%;
+    height: 88%;
     display: flex;
+    top: 2%;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -39,7 +43,7 @@
     aspect-ratio: 1;
     justify-content: center;
     align-items: center;
-    border: 1px solid #0F0;  /*----------- BORDER ------------------*/
+    /*border: 1px solid #0F0;*/  /*----------- BORDER ------------------*/
     bottom: 2%;
     left: 2%;
     
