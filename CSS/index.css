@@ -15,9 +15,9 @@
     overflow: hidden;
 }
 
-.maintext /*DIV*/
+.maincontent /*DIV*/
 {
-    /*border: 1px solid #0F0; */ /*----------- BORDER ------------------*/
+    border: 1px solid #0F0;  /*----------- BORDER ------------------*/
     position: absolute;
     width: 96%;
     height: 80%;
@@ -39,7 +39,7 @@
     aspect-ratio: 1;
     justify-content: center;
     align-items: center;
-    /*border: 1px solid #0F0; */ /*----------- BORDER ------------------*/
+    border: 1px solid #0F0;  /*----------- BORDER ------------------*/
     bottom: 2%;
     left: 2%;
     

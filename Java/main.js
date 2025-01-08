@@ -1,6 +1,6 @@
 
 window.addEventListener("load", () => {
-
+/*
     const userAgent = navigator.userAgent.toLowerCase();
     if (/android|iphone|ipad|ipod|blackberry|opera mini|iemobile|mobile|tablet/.test(userAgent)) {
         document.body.innerHTML = "<h1>Can only be opened on a computer and in full screen page.</h1>";
@@ -11,7 +11,7 @@ window.addEventListener("load", () => {
         window.location.href = "https://kaszalehel.github.io/";
     }
     console.log(window.innerWidth, window.innerHeight);
-
+*/
     const felsoTerminal = document.getElementById("felso-terminal");
     const iras = document.getElementById("iras");
     const kozepsoTerminal = document.getElementById("kozepso-terminal");

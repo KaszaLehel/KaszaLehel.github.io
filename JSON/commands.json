@@ -3,24 +3,36 @@
         "short": "Available commands: help, projects, informations, exit",
         "long": ""
     },
-    "information": {
-        "short": "Informations are under loading...",
+    "crystaleater": {
+        "short": "The project is loading...",
         "long": "The information you are looking for is currently being processed and will be available soon."
     },
-    "berserk": {
-        "short": "Berserk is loading...",
+    "peligro": {
+        "short": "Peligro is loading...",
         "long": "The Berserk section is under development, please wait until it's ready to be shown."
     },
-    "exit": {
-        "short": "Exiting...",
+    "3dworld": {
+        "short": "3D world is under uploading....",
+        "long": "The Berserk section is under development, please wait until it's ready to be shown."
+    },
+    "mobile": {
+        "short": "Under uploading....",
         "long": "The system shuts down."
     },
-    "projects": {
-        "short": "Projects are under uploading....",
+    "portfolio": {
+        "short": "Portfolio are under uploading....",
+        "long": "The projects are currently being uploaded to the server. It will take a few moments to complete this process."
+    },
+    "easteregg": {
+        "short": "Scanning the page...",
         "long": "The projects are currently being uploaded to the server. It will take a few moments to complete this process."
     },
     "clear": {
         "short": "Clear is under the procces...",
         "long": ""
+    },
+    "exit": {
+        "short": "Exiting...",
+        "long": "The system shuts down."
     }
 }

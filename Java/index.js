@@ -1,13 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     let btn = document.querySelector('#button-style');
+    let buttonContainer = document.querySelector('#button');
     
     btn.onmousemove = function(e) {
-        let rect = btn.getBoundingClientRect(); // Az elem pozíciója
-        let x = e.clientX - rect.left; // Egér X pozíciója az elem relatív koordinátáján
-        let y = e.clientY - rect.top; // Egér Y pozíciója az elem relatív koordinátáján
+        let rect = btn.getBoundingClientRect(); 
+        let x = e.clientX - rect.left; 
+        let y = e.clientY - rect.top; 
         
-        // Beállítjuk a CSS változókat
         btn.style.setProperty('--x', `${x}px`);
         btn.style.setProperty('--y', `${y}px`);
     };
+
+    function toggleButtonVisibility() {
+        if (window.innerWidth <= 1024 || window.innerHeight <= 600) { 
+            buttonContainer.style.visibility = 'hidden';
+        } else {
+            buttonContainer.style.visibility = 'visible';
+        }
+    }
+
+    window.addEventListener('resize', toggleButtonVisibility);
+    toggleButtonVisibility();
 });
