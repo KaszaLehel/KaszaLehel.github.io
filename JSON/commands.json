@@ -5,27 +5,27 @@
     },
     "crystaleater": {
         "short": "The project is loading...",
-        "long": "The information you are looking for is currently being processed and will be available soon."
+        "long": "CrystalEater is a metroidvania style game. Metroidvania is a subclass of 2D platform games. The game is developed in the Unity engine. One of its interesting features is that everything is handmade. The graphics, the sound, and all the features that are in the game. There are a lot of easter-eggs hidden in it and thanks to this the total playing time exceeds one hour.  The game has its own menu and save system. A photo mode is also included. Green, blue and black colours characterize the world. The aim was to create a mysterious, dark, eerie atmosphere full of shadows."
     },
     "peligro": {
         "short": "Peligro is loading...",
-        "long": "The Berserk section is under development, please wait until it's ready to be shown."
+        "long": "Peligro is a simple 2D platform game. The aim of the game is to get the character to the red crystal and collect it to move on to the next level. The elements of the world have been given a light colouring and shading. All elements are handmade. The game was made with the Unity engine."
     },
     "3dworld": {
         "short": "3D world is under uploading....",
-        "long": "The Berserk section is under development, please wait until it's ready to be shown."
+        "long": "3D world made in Unity engine. The project was all about photorealism, and creating a world digitally that closely resembles reality. The elements of the world have LOD (Level of detail)."
     },
     "mobile": {
         "short": "Under uploading....",
-        "long": "The system shuts down."
+        "long": "The project was a word search game available exclusively for android. It was written in Java. The app is bilingual and you can switch between languages in the settings. The words are read from a JSON file."
     },
     "portfolio": {
         "short": "Portfolio are under uploading....",
-        "long": "The projects are currently being uploaded to the server. It will take a few moments to complete this process."
+        "long": "The portfolio project is a website where you can find all the information about the developer. It has a special mechanism that can only be opened on a computer, and that is the Terminal. In the Terminal, the user can find all the projects that the developer has created so far. It presents these projects with a short description."
     },
     "easteregg": {
         "short": "Scanning the page...",
-        "long": "The projects are currently being uploaded to the server. It will take a few moments to complete this process."
+        "long": "The terminal contains some interesting features. At the top you can see a number indicating the time the terminal was opened.To the right of the text you can see an ip address. This is the ip address through which the website communicates. The animation shown at startup mimics a machine turning on and loading. The exit command closes the terminal and returns to the portfolio website."
     },
     "clear": {
         "short": "Clear is under the procces...",

@@ -7,21 +7,41 @@
         <meta name="keywords" content="HTML, CSS, JavaScript">
         <meta name="author" content="Kasza Lehel">
         <meta name="description" content="My personal portfolio webpage.">
+        <meta name="theme-color" content="#222">
         <link rel="stylesheet" type="text/css" href="CSS/bubbles.css">
         <link rel="stylesheet" type="text/css" href="CSS/index.css">
         <script src="Java/bubble.js" defer></script>
         <script src="Java/index.js" defer></script>
     </head>
     <body>
+        <!--CONTENT-->
         <div id="content" class="content">
-            <div class="maincontent">
-                <h1 id="name">Kasza Lehel</h1>
-                <h3 id="footnote">Software Developer</h3>
+            <div id="maincontent" class="maincontent">
+                <section id="person" class="person">
+                    <div id="persontext">
+                        <h1 id="name">Kasza Lehel</h1>
+                        <h3 id="who">Softvare Developer</h3>
+                    </div>
+                </section>
+                <section class="projects">
+                    <h1>Projects</h1>
+                </section>
+                <section class="games">
+                    <h1>Games</h1>
+                </section>
+                <section class="games">
+                    <h1>Berserk</h1>
+                </section>
+                <section class="games">
+                    <h1>Peligro</h1>
+                </section>
             </div>
             <div id="button">
                 <a href="terminal.html" id="button-style" style="--clr:#ff4c25;"><span id="span-text">Terminal</span></a>
             </div>
         </div>
+
+        <!--BACKGROUND-->
         <div class="gradient-bg">
             <svg xmlns="http://www.w3.org/2000/svg">
                 <defs>
@@ -41,5 +61,6 @@
                 <div class="interactive"></div>
             </div>
         </div>
+
     </body>
 </html>

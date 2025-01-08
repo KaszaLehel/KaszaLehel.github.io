@@ -16,6 +16,7 @@ body
     justify-content: center;
     align-items: center;
     background: linear-gradient(40deg, var(--color-bg3), var(--color-bg4));
+    overflow: hidden;
 }
 
 :root

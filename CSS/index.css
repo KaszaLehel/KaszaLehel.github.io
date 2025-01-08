@@ -5,48 +5,79 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
     justify-content: center;
     align-items: center;
     user-select: none;
-    /*border: 1px solid #0f0;
-    opacity: 1;*/
     overflow: hidden;
+    /*opacity: 1;*/
 }
 
-.maincontent /*DIV*/
+#maincontent
 {
-    /*border: 1px solid #0F0; */ /*----------- BORDER ------------------*/
-    background-color: rgba(207, 208, 191, 0);
-    border-radius: 40px;
-    position: absolute;
-    width: 96%;
-    height: 88%;
+    width: 90%;
+    height: 97%;
+    right: 1%;
+    overflow-y: scroll;
     display: flex;
-    top: 2%;
+    position: absolute;
+    flex-direction: column;
+    scroll-snap-type: y mandatory;
+    border: 1px solid #F00;
+    
+}
+#maincontent::-webkit-scrollbar
+{
+    display: none;
+}
+
+section {
+    min-height: 100%;
+    width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    color: #ebebeb;
-    font-size: 30px;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    border: 1px solid #0f0;
+    scroll-snap-align: start;
+    position: relative;
 }
 
-#button {
+
+#persontext
+{
+    color: #FFF;
+    display: flex;
     position: absolute;
+    top: 30%;
+    left: 15%;
+    flex-direction: column;
+    font-size: 30px;
+    text-align: justify;
+    /*border: 1px solid #0F0;*/
+}
+
+#persontext h1
+{
+    font-size: min(10vw, 8vh);
+}
+#persontext h3
+{
+    font-size: min(7vw, 5vh);
+    
+}
+
+
+
+#button {
+    position:absolute;
     display: flex;
     width: 7%;
     height: 7%;
     aspect-ratio: 1;
     justify-content: center;
     align-items: center;
-    /*border: 1px solid #0F0;*/  /*----------- BORDER ------------------*/
+    /*border: 1px solid #0F0;  /*----------- BORDER ------------------*/
     bottom: 2%;
-    left: 2%;
-    
+    left: 1%;
 }
 
 #button-style
