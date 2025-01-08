@@ -90,14 +90,9 @@ window.addEventListener("load", () => {
         currentMessage = message;
         inputLine.classList.add('invisible');
 
-        let messageLines = message.split('\n');
-
-
         function type() {
             if (index < message.length) {
-                let currentLine = messageLines[index];
-
-                output.innerHTML += currentLine + (index < messageLines.length - 1 ? '\n' : '');  //message.charAt(index);
+                output.innerHTML += message.charAt(index);
                 index++;
                 output.scrollTop = output.scrollHeight;
                 limitOutputLines();
