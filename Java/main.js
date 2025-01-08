@@ -85,8 +85,8 @@ window.addEventListener("load", () => {
     setTimeout(typeModuel, 1750);
     setTimeout(typeAuto, 1750);
     setTimeout(() => {
-        maxHeight = 20; //oldalsoTerminal.offsetHeight * 0.2; 
-        maxWidth = 5; //oldalsoTerminal.offsetWidth * 0.05;
+        maxHeight = 20;  
+        maxWidth = 5; 
         animateLine(); 
     }, 1500);
 
@@ -208,8 +208,6 @@ window.addEventListener("load", () => {
                 setTimeout(typeTime, 75);
             }
         }
-
-        
         felsoIdo.textContent = ""; 
         typeTime();
     }

@@ -5,11 +5,11 @@
     },
     "crystaleater": {
         "short": "The project is loading...",
-        "long": "CrystalEater is a metroidvania style game. Metroidvania is a subclass of 2D platform games. The game is developed in the Unity engine. One of its interesting features is that everything is handmade. The graphics, the sound, and all the features that are in the game. There are a lot of easter-eggs hidden in it and thanks to this the total playing time exceeds one hour.  The game has its own menu and save system. A photo mode is also included. Green, blue and black colours characterize the world. The aim was to create a mysterious, dark, eerie atmosphere full of shadows."
+        "long": "CrystalEater is a metroidvania style game. Metroidvania is a subclass of 2D platform games.The game is developed in the Unity engine. One of its interesting features is that everything is handmade. The graphics, the sound, and all the features that are in the game. There are a lot of easter-eggs hidden in it and thanks to this the total playing time exceeds one hour.  The game has its own menu and save system. A photo mode is also included. Green, blue and black colours characterize the world. The aim was to create a mysterious, dark, eerie atmosphere full of shadows."
     },
     "peligro": {
         "short": "Peligro is loading...",
-        "long": "Peligro is a simple 2D platform game. The aim of the game is to get the character to the red crystal and collect it to move on to the next level. The elements of the world have been given a light colouring and shading. All elements are handmade. The game was made with the Unity engine."
+        "long": "Peligro is a simple 2D platform game.\nThe aim of the game is to get the character to the red crystal and collect it to move on to the next level. The elements of the world have been given a light colouring and shading. All elements are handmade. The game was made with the Unity engine."
     },
     "3dworld": {
         "short": "3D world is under uploading....",
@@ -21,7 +21,7 @@
     },
     "portfolio": {
         "short": "Portfolio are under uploading....",
-        "long": "The portfolio project is a website where you can find all the information about the developer. It has a special mechanism that can only be opened on a computer, and that is the Terminal. In the Terminal, the user can find all the projects that the developer has created so far. It presents these projects with a short description."
+        "long": "The portfolio project is a website where you can find all the information about the developer. It has a special mechanism that can only be opened on a computer, and that is the Terminal. In the Terminal, the user can find all the projects that the developer has created so far. It presents these projects with a short description. Everything on the website is my own work."
     },
     "easteregg": {
         "short": "Scanning the page...",

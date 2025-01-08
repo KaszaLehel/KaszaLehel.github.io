@@ -5,22 +5,12 @@ window.addEventListener("load", () => {
     const terminal = document.getElementById("commands");
     const content = document.getElementById("content");
 
-
     let currentMessage = "";
     let index = 0;
 
     let commands = "";
     let retryCount = 0;
-/*  
-    fetch('commands.json')
-        .then(response => response.json())
-        .then(data => {
-            commands = data;
-        })
-        .catch(error => {
-            console.error("Hiba a parancsok betöltése közben:", error);
-        });
-*/
+
         function loadCommands() {
             fetch('JSON/commands.json')
                 .then(response => {
@@ -55,7 +45,6 @@ window.addEventListener("load", () => {
             inputLine.classList.remove('invisible');
             inputLine.disabled = false; 
             input.focus(); 
-            
         });
     }, 2200);
 
@@ -101,9 +90,14 @@ window.addEventListener("load", () => {
         currentMessage = message;
         inputLine.classList.add('invisible');
 
+        let messageLines = message.split('\n');
+
+
         function type() {
             if (index < message.length) {
-                output.innerHTML += message.charAt(index);
+                let currentLine = messageLines[index];
+
+                output.innerHTML += currentLine + (index < messageLines.length - 1 ? '\n' : '');  //message.charAt(index);
                 index++;
                 output.scrollTop = output.scrollHeight;
                 limitOutputLines();
@@ -122,19 +116,6 @@ window.addEventListener("load", () => {
     }
 
     function limitOutputLines() {
-     /*   
-        const terminalHeight = terminal.clientHeight;
-        const lineHeight = parseFloat(window.getComputedStyle(output).lineHeight);
-        const maxLines = Math.floor(terminalHeight / lineHeight)-2;
-
-        const lines = output.innerHTML.split('\n');
-
-        if (lines.length > maxLines) {
-            output.innerHTML = lines.slice(lines.length - maxLines).join('\n');
-        }
-
-        output.scrollTop = output.scrollHeight;
-        */
 
         while (output.scrollHeight > terminal.clientHeight) {
             let lines = output.innerText.split('\n');
@@ -143,7 +124,6 @@ window.addEventListener("load", () => {
             lines = lines.slice(excessLines);
             output.innerText = lines.join('\n');
         }
-        
     }
 
     window.addEventListener('resize', () => {

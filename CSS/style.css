@@ -424,7 +424,7 @@ input, textarea {
     overflow: hidden;
     margin: 0;
     font-size: min(2vw, 2vh);
-    text-align:justify;
+    text-align:left;
     line-height: 1;
 }
 
