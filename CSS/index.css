@@ -1,5 +1,5 @@
-
-#content /*DIV*/
+/*------------- MAIN BODY CONTENT ----------------*/
+#content
 {
     z-index: 100;
     width: 100vw;
@@ -12,17 +12,97 @@
     /*opacity: 1;*/
 }
 
+/*---------- MENU BUTTONS ----------*/
+
+#menu
+{
+    width:3%;
+    z-index: 1;
+    position: absolute;
+    height: auto;
+    left: 5%;
+    top: 50%; /*5% VAGY 50% <--DE AKKOR KELL--> transform: translateY(-50%);*/
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /*border: 1px solid #F00;*/
+}
+
+.menu-item {
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    /*height: 50px;*/
+    aspect-ratio: 1/1; 
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition:opacity 0.8s ease, visibility 0s 0.5s, width 0.3s, border-radius 0.3s, padding 0.3s;
+    color: #FFF;
+    font-size: min(1.5vw, 2vh);
+    font-weight: bolder;
+}
+
+.menu-item:hover { 
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.menu-item::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    white-space: nowrap;
+}
+
+.menu-item:hover::after {
+    opacity: 1;
+}
+
+#menu .menu-item.visible {
+    opacity: 1;
+    visibility: visible; 
+    transition: opacity 0.8s ease, visibility 0s 0s;
+}
+
+.menu-item.white:hover {
+    /*box-shadow: 0 0 15px rgba(235, 236, 220, 0.8); */
+    background: none;
+}
+
+.menu-item.black:hover {
+    /*box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); */
+    color: #000;
+    background: none;
+}
+
+.menu-item.white {
+    background: radial-gradient(circle closest-side at center, rgba(235, 236, 220, 0.8) 0, rgba(235, 236, 220, 0) ) no-repeat;
+}
+
+.menu-item.black {
+    background: radial-gradient(circle closest-side at center, rgba(10, 15, 10, 0.8) 0, rgba(10, 15, 10, 0) ) no-repeat;
+}
+
+/*--------MAIN CONTENT--------*/
+
 #maincontent
 {
-    width: 90%;
-    height: 97%;
-    right: 1%;
+    width: 100%; /*91%*/
+    height: 100%;
+    right: 0; /*1%*/
     overflow-y: scroll;
     display: flex;
     position: absolute;
     flex-direction: column;
     scroll-snap-type: y mandatory;
-    border: 1px solid #F00;
+    /*border: 1px solid #F00;*/
     
 }
 #maincontent::-webkit-scrollbar
@@ -36,9 +116,17 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #0f0;
+    /*border: 1px solid #0f0;*/
     scroll-snap-align: start;
     position: relative;
+}
+#portfolio
+{
+    background: linear-gradient(to left, rgba(235, 236, 220, 0.99) 40%,rgba(235, 236, 220, 0.5) 65%, rgba(235, 236, 220, 0) 90%);
+}
+#projects
+{
+    background: rgba(235, 236, 220, 1);
 }
 
 
@@ -46,9 +134,7 @@ section {
 {
     color: #FFF;
     display: flex;
-    position: absolute;
-    top: 30%;
-    left: 15%;
+    position:relative;
     flex-direction: column;
     font-size: 30px;
     text-align: justify;
@@ -65,7 +151,7 @@ section {
     
 }
 
-
+/*--------- TERMINAL BUTON ---------*/
 
 #button {
     position:absolute;
@@ -75,7 +161,7 @@ section {
     aspect-ratio: 1;
     justify-content: center;
     align-items: center;
-    /*border: 1px solid #0F0;  /*----------- BORDER ------------------*/
+    /*border: 1px solid #0F0;*/
     bottom: 2%;
     left: 1%;
 }
@@ -87,10 +173,6 @@ section {
     border-radius: 50px;
     color: #999;
     font-size: 1vw;
-    /*font-size: min(1.5vw, 1.5vh);
-    font-size: clamp(12px, 1vw, 24px);
-    font-size: 80%;
-    font-size: calc(50% * var(--parent-height));*/
     font-weight: bold;
     text-decoration: none;
     background: rgba(45, 45, 45, 1);
@@ -102,7 +184,7 @@ section {
 {
     color: var(--clr);
     text-shadow: 0 0 10px var(--clr);
-              /*,0 0 40px var(--clr);*/
+    cursor: pointer;
 }
 
 #button-style span
