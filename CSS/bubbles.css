@@ -33,6 +33,7 @@ body
     --color-interactive: 10, 151, 127;
     --circle-size: 80%; /*80%; 40vw*/ /*---------------- CIRCLE RESPONSIVE ---------------*/
     --belnding: hard-light;
+    --vh: 1vh;
 }
 
 @keyframes moveInCircle

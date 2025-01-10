@@ -3,13 +3,14 @@
 {
     z-index: 100;
     width: 100vw;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100); /*100vh*/
     display: flex;
     justify-content: center;
     align-items: center;
     user-select: none;
     overflow: hidden;
     /*opacity: 1;*/
+    border: 1px solid #F00;
 }
 
 /*---------- MENU BUTTONS ----------*/
