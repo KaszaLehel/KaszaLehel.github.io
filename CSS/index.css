@@ -113,15 +113,15 @@
 }
 
 section {
-    min-height: 100%;
+    min-height: 100vh; /*100%*/
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     /*border: 1px solid #0f0;*/
-    scroll-snap-align: start;
+    scroll-snap-align: start; /*start;*/
     position: relative;
-    flex-shrink: 0;
+    flex-shrink: 0; 
 }
 #portfolio
 {
