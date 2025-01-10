@@ -4,6 +4,7 @@
     z-index: 100;
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,7 +97,8 @@
 #maincontent
 {
     width: 100%; /*91%*/
-    height: 100vh;
+    height: 100vh; 
+    height: 100dvh;
     right: 0; /*1%*/
     overflow-y: scroll;
     display: flex;
@@ -104,8 +106,7 @@
     flex-direction: column;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    /*border: 1px solid #F00;*/
-    
+    /*border: 1px solid #F00;*/ 
 }
 #maincontent::-webkit-scrollbar
 {
@@ -113,7 +114,8 @@
 }
 
 section {
-    min-height: 100vh; /*100vh*/
+    min-height: 100vh;/* 100%*/
+    min-height: 100dvh;
     width: 100%;
     display: flex;
     justify-content: center;

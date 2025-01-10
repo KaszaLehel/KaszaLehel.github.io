@@ -93,7 +93,7 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 
 
-const distanceThreshold = 100;
+const distanceThreshold = 300;
 function isMouseNearElement(e) {
     const rect = menu.getBoundingClientRect();
     const mouseX = e.clientX;
