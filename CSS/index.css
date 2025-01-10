@@ -3,7 +3,7 @@
 {
     z-index: 100;
     width: 100vw;
-    height: calc(var(--vh, 1vh) * 100); /*100vh*/
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;

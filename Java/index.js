@@ -121,6 +121,16 @@ document.addEventListener('mousemove', (e) => {
 });
 
 
+    function setFullHeight(){
+        const fullHeightDiv = document.getElementById('content');
+        console.log(`${window.innerHeight}px`);
+        fullHeightDiv.style.height = `${window.innerHeight}px`;
+    }
+
+    window.addEventListener('load', setFullHeight);
+    window.addEventListener('resize', setFullHeight);
+
+
 
 });
 
