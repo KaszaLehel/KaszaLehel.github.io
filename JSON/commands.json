@@ -5,23 +5,23 @@
     },
     "crystaleater": {
         "short": "The project is loading...",
-        "long": "CrystalEater is a metroidvania style game. Metroidvania is a subclass of 2D platform games.The game is developed in the Unity engine. One of its interesting features is that everything is handmade. The graphics, the sound, and all the features that are in the game. There are a lot of easter-eggs hidden in it and thanks to this the total playing time exceeds one hour.  The game has its own menu and save system. A photo mode is also included. Green, blue and black colours characterize the world. The aim was to create a mysterious, dark, eerie atmosphere full of shadows."
+        "long": "Crystal Eater is a Metroidvania style game. Metroidvania is a subgenre of 2D platform games. It is an interesting genre because of its emphasis on world exploration and character development and growth. This game was created in the Unity engine. It is important to emphasize that everything is handmade. The graphics, the sound and all the features that are included in the game. No assets made by others are used in the game. The game tells a teaching story. Its structure nicely guides the player to the lesson. There are plenty of easter-eggs hidden in the game process. This allows you to enjoy the discovery. Thanks to the wandering, the total playing time exceeds one hour. The game has its own menu and save system. A photo mode is also included in the game. If the player stands in one place for a long time the UI clears up nicely and only the game world is visible on the screen. After that, as soon as you move the character, all elements will reappear. Green, blue and black colours characterize the world. The aim was to create a mysterious, dark, eerie atmosphere full of shadows. The colours, mood and graphics of the game create an atmosphere that is immersive. "
     },
     "peligro": {
         "short": "Peligro is loading...",
-        "long": "Peligro is a simple 2D platform game. The aim of the game is to get the character to the red crystal and collect it to move on to the next level. The elements of the world have been given a light colouring and shading. All elements are handmade. The game was made with the Unity engine."
+        "long": "Peligro is a simple 2D platform game. The game consists of levels that you have to complete. The goal of the game is to get the character to the red crystal and collect gold coins during the course of the game. After reaching the red crystal, the player moves on to the next level. The world elements are brightly coloured and shaded. All elements are handmade. The game was created with the Unity engine. One of the first games I made. It has no save system and the menu is simple, however the game structure does not require such options."
     },
     "3dworld": {
         "short": "3D world is under uploading....",
-        "long": "3D world made in Unity engine. The project was all about photorealism, and creating a world digitally that closely resembles reality. The elements of the world have LOD (Level of detail)."
+        "long": "3D world made with the Unity engine. The project was to create a world digitally that looks close to a photorealistic look, i.e. close to reality. The plan was to create a world that was visually stunning. The world uses free assets. The assets were implemented in the world using LOD. The character with which you can move sees the world in first-person camera view. It is important to note that although optimized, it still requires a computer with a certain hardware power to run."
     },
     "mobile": {
         "short": "Under uploading....",
-        "long": "The project was a word search game available exclusively for android. It was written in Java. The app is bilingual and you can switch between languages in the settings. The words are read from a JSON file."
+        "long": "The project is a word puzzle game available exclusively for the android operating system. The aim of the game is to teach the user Serbian and Hungarian. You give a Serbian word and the letters of its Hungarian equivalent are mixed and displayed on the screen. It has three levels of difficulty. The application is multilingual, i.e. the system language can be set to either Serbian or Hungarian in the settings. Alternatively, music and sounds can be turned off and saved in these settings. Written in Java in Android Studio integrated development environment. Word pairs are read from a JSON file. "
     },
     "portfolio": {
         "short": "Portfolio are under uploading....",
-        "long": "The portfolio project is a website where you can find all the information about the developer. It has a special mechanism that can only be opened on a computer, and that is the Terminal. In the Terminal, the user can find all the projects that the developer has created so far. It presents these projects with a short description. Everything on the website is my own work."
+        "long": "Porfolio is a website about me. All information and projects can be found on this site. The website is entirely made by me, all my own work, using only HTML, CSS and JavaScript. The design was done by me. It has a scepial mechanism that can only be opened on a computer. This is the Terminal. The Terminal is an easter-egg which may be of interest to some people. In Terminal, the user can find all the projects I have created so far. These projects are presented with a short description after typing the appropriate command."
     },
     "easteregg": {
         "short": "Scanning the page...",

@@ -31,6 +31,7 @@ const personSection = document.querySelector('#person');
 
 let isMouseTrackingEnabled = false;
 
+let currentIndex = 0;
 
 
 
@@ -39,6 +40,8 @@ const observer = new IntersectionObserver((entries, observer) => {
         
         if (entry.isIntersecting) {
             //console.log(entry.target.id + ' szekció látható!');
+            currentIndex = Array.from(sections).indexOf(entry.target);
+            //console.log(currentIndex);
 
             if (entry.target.id === 'projects') {
                 menuItems.forEach(item => {
@@ -111,10 +114,10 @@ document.addEventListener('mousemove', (e) => {
 
     if (isMouseTrackingEnabled) {
         if (isMouseNearElement(e)) {
-            //console.log('Az egér közel van a div elemhez!');
+            //console.log('Az egér közel van a menu elemhez!');
             menuItems.forEach(item => item.classList.add('visible'));
         } else {
-            //console.log('Az egér nincs közel a div elemhez.');
+            //console.log('Az egér nincs közel a menu elemhez.');
             menuItems.forEach(item => item.classList.remove('visible'));
         }
     }
@@ -123,12 +126,32 @@ document.addEventListener('mousemove', (e) => {
 
     function setFullHeight(){
         const fullHeightDiv = document.getElementById('content');
-        console.log(`${window.innerHeight}px`);
+        //console.log(`${window.innerHeight}px`);
         fullHeightDiv.style.height = `${window.innerHeight}px`;
     }
 
     window.addEventListener('load', setFullHeight);
     window.addEventListener('resize', setFullHeight);
+
+
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowDown') {
+            // Lefelé nyíl: Következő szekcióra ugrik
+            if (currentIndex < sections.length - 1) {
+                currentIndex++;
+                sections[currentIndex].scrollIntoView({ behavior: 'smooth' });
+            }
+        } else if (event.key === 'ArrowUp') {
+            // Felfelé nyíl: Előző szekcióra ugrik
+            if (currentIndex > 0) {
+                currentIndex--;
+                sections[currentIndex].scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+
+
 
 
 

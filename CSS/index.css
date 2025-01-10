@@ -10,7 +10,7 @@
     user-select: none;
     overflow: hidden;
     /*opacity: 1;*/
-    border: 1px solid #F00;
+    /*border: 1px solid #F00;*/
 }
 
 /*---------- MENU BUTTONS ----------*/
@@ -103,6 +103,7 @@
     position: absolute;
     flex-direction: column;
     scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
     /*border: 1px solid #F00;*/
     
 }
@@ -120,22 +121,103 @@ section {
     /*border: 1px solid #0f0;*/
     scroll-snap-align: start;
     position: relative;
+    flex-shrink: 0;
 }
 #portfolio
 {
-    background: linear-gradient(to left, rgba(235, 236, 220, 0.99) 40%,rgba(235, 236, 220, 0.5) 65%, rgba(235, 236, 220, 0) 90%);
+    background: linear-gradient(to left, rgba(235, 236, 220, 1) 50%,rgba(235, 236, 220, 0.5) 75%, rgba(235, 236, 220, 0) 90%);
+    width: 98%;
+    left: 0;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
+#works
+{
+    position: absolute;
+    /*border: 1px solid #000;*/
+    font-size: min(1.7vw, 1.7vh);
+    height: auto; /*20%*/
+    width: 20%;
+    right: 3%;
+    top: 10%;
+    text-align: justify;
+}
+#schools
+{
+    position: absolute;
+    /*border: 1px solid #000;*/
+    font-size: min(1.7vw, 1.7vh);
+    height: auto; /*20%*/
+    width: 20%;
+    right: 25%;
+    top: 33%;
+    text-align: justify;
+}
+#languages
+{
+    position: absolute;
+    /*border: 1px solid #000;*/
+    font-size: min(1.7vw, 1.7vh);
+    height: auto; /*15*/
+    width: 20%;
+    right: 3%;
+    /*top: 66%;*/
+    bottom: 33%;
+    text-align: justify;
+}
+#skills
+{
+    position: absolute;
+    /*border: 1px solid #000;*/
+    font-size: min(1.7vw, 1.7vh);
+    height: auto; /*20*/
+    width: 20%;
+    right: 25%;
+    bottom: 10%;
+    text-align: justify;
+}
+#dividing-line
+{
+    position: absolute;
+    background-color: #000;
+    height: 85%;
+    width: 1px;
+    right: 24%;
+}
+
+#portfolio h4 {
+    font-weight: normal;
+}
+
+/*-------- PROJECTS---------*/
 #projects
 {
     background: rgba(235, 236, 220, 1);
+    min-height: auto; 
+    flex-grow: 1;
+    flex-direction: column;
 }
 
+#peligro
+{
+    height: 100vh;
+    width: 100%;
+    border: 1px solid #00F;
+}
+
+#site
+{
+    height: 100vh;
+    width: 100%;
+    border: 1px solid #00F;
+}
 
 #persontext
 {
     color: #FFF;
     display: flex;
     position:relative;
+    bottom: 10%;
     flex-direction: column;
     font-size: 30px;
     text-align: justify;
@@ -151,6 +233,21 @@ section {
     font-size: min(7vw, 5vh);
     
 }
+
+#scroll
+{
+    position: absolute;
+    color: rgba(235, 236, 220, 1);
+    display: flex;
+    font-size: 12px;
+    /*border: 1px solid #00F;*/
+    bottom: 5%;
+}
+
+
+/*--------- PROJECTS SECTION---------*/
+
+
 
 /*--------- TERMINAL BUTON ---------*/
 
