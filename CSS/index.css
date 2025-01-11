@@ -11,7 +11,7 @@
     user-select: none;
     overflow: hidden;
     /*opacity: 1;*/
-    border: 1px solid #F00;
+    /*border: 1px solid #F00;*/
 }
 
 /*---------- MENU BUTTONS ----------*/
@@ -106,7 +106,7 @@
     flex-direction: column;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    border: 1px solid #0F0;
+    /*border: 1px solid #0F0;*/
 }
 #maincontent::-webkit-scrollbar
 {
@@ -120,7 +120,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #00f;
+    /*border: 1px solid #00f;*/
     scroll-snap-align: start; /*start;*/
     position: relative;
     flex-shrink: 0; 
