@@ -106,6 +106,7 @@
     flex-direction: column;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; 
     /*border: 1px solid #0F0;*/
 }
 #maincontent::-webkit-scrollbar
@@ -113,7 +114,7 @@
     display: none;
 }
 
-section {
+.datasection {
     min-height: 100vh;/* 100%*/
     min-height: 100dvh;
     width: 100%;
@@ -123,8 +124,9 @@ section {
     /*border: 1px solid #00f;*/
     scroll-snap-align: start; /*start;*/
     position: relative;
-    flex-shrink: 0; 
+    /*flex-shrink: 0; */
 }
+
 #portfolio
 {
     background: linear-gradient(to left, rgba(235, 236, 220, 1) 50%,rgba(235, 236, 220, 0.5) 75%, rgba(235, 236, 220, 0) 90%);
@@ -191,28 +193,127 @@ section {
     font-weight: normal;
 }
 
-/*-------- PROJECTS---------*/
-#projects
+/*---------SKILLS-----------*/
+
+#skillpage
 {
-    background: rgba(235, 236, 220, 1);
-    min-height: auto; 
-    flex-grow: 1;
-    flex-direction: column;
+    position: absolute;
+    display: flex;
+    height: 90%;
+    width: 87%;
+    right: 2%;
+    text-align: center;
+    justify-content: center;
+    padding: 2%;
+    overflow: hidden;
+    color: white;
+    flex-direction:row;
+    background: radial-gradient(135deg, rgba(235, 236, 220, 0.1), rgba(235, 236, 220, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(235, 236, 220, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
+    /*background-blend-mode: screen;*/
 }
 
-#peligro
+#language
 {
-    height: 100vh;
-    width: 100%;
-    border: 1px solid #00F;
+    position: absolute;
+    /*border: 1px solid #0F0;*/
+    display: flex;
+    font-size: min(1.7vw, 1.7vh);
+    justify-content: center;
+    height: 80%;
+    width: 45%;
+    top: 15%;
+    left: 3%;
 }
 
-#site
+#separator
 {
-    height: 100vh;
-    width: 100%;
-    border: 1px solid #00F;
+    position:fixed;
+    background-color: #FFF;
+    height: 70%;
+    width: 1px;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%);
 }
+
+#tools
+{
+    position: absolute;
+    /*border: 1px solid #0F0;*/
+    font-size: min(1.7vw, 1.7vh);
+    padding: 1%;
+    height: 80%;
+    width: 45%;
+    top: 15%;  
+    right: 3%;
+}
+
+.hun
+{
+    font-weight: normal;
+    margin-bottom: 7%;
+}
+.metric
+{
+    display: flex;
+    height: 7%;
+    border: 1px solid rgba(235, 236, 220, 1);
+    margin-bottom: 2%;
+    align-items: center;
+    padding-left: 2%;
+    box-shadow: inset 0 0 8px rgba(235, 236, 220, 0.6);
+    justify-content: space-between;
+}
+
+.metric-value
+{
+    float: right;
+    margin-right: 2%;
+}
+
+#hungary
+{
+    position: relative;
+    display: flex;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+    /*border: 1px solid #0F0;*/
+    text-align:justify;
+}
+/*
+#serbia
+{
+    position: absolute;
+    height: auto;
+    width: 30%;
+    /*border: 1px solid #0F0;
+    bottom: 20%;
+    left: 17%;
+    text-align: justify;
+}
+
+#germany
+{
+    position: absolute;
+    height: auto;
+    width: 30%;
+    /*border: 1px solid #0F0;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 17%;
+    text-align: justify;
+}
+*/
+
+
+/*--------- ELSO SECTION -----------*/
 
 #persontext
 {
@@ -245,10 +346,6 @@ section {
     /*border: 1px solid #00F;*/
     bottom: 5%;
 }
-
-
-/*--------- PROJECTS SECTION---------*/
-
 
 
 /*--------- TERMINAL BUTON ---------*/

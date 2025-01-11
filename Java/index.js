@@ -43,7 +43,7 @@ const observer = new IntersectionObserver((entries, observer) => {
             currentIndex = Array.from(sections).indexOf(entry.target);
             //console.log(currentIndex);
 
-            if (entry.target.id === 'projects') {
+            if (currentIndex == 3) { //entry.target.id === 'projects'
                 menuItems.forEach(item => {
                     item.classList.remove('white');
                     item.classList.add('black');
@@ -55,7 +55,7 @@ const observer = new IntersectionObserver((entries, observer) => {
                 });
             }
             
-            if (entry.target.id === 'person') 
+            if (currentIndex == 0) //entry.target.id === 'person'
             {
                 menuItems.forEach(item => item.classList.remove('visible'));
                 //console.log('LÁTHATATLAN');
@@ -69,7 +69,7 @@ const observer = new IntersectionObserver((entries, observer) => {
         }
     });
 }, {
-    threshold: 0.2
+    threshold: 0.3,
     });
 
     sections.forEach(section => {
