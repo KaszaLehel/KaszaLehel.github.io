@@ -322,6 +322,8 @@
     position:relative;
     bottom: 10%;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     font-size: 30px;
     text-align: justify;
     /*border: 1px solid #0F0;*/
@@ -333,7 +335,7 @@
 }
 #persontext h3
 {
-    font-size: min(7vw, 5vh);
+    font-size: min(3.5vw, 2.5vh);
     
 }
 
@@ -342,7 +344,7 @@
     position: absolute;
     color: rgba(235, 236, 220, 1);
     display: flex;
-    font-size: 12px;
+    font-size: min(1.5vw, 1.5vh);
     /*border: 1px solid #00F;*/
     bottom: 5%;
 }
