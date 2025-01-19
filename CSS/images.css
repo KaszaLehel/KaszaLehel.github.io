@@ -28,11 +28,11 @@
     display: flex;
     height: 100vh;
     height: 90%; /*90vh 90dvh*/
-    width: 87%;
+    width: 87%; /*87*/
     right: 2%;
     flex-direction: row;
     overflow: hidden;
-    /*border: 1px solid #0F0;*/
+    border: 1px solid #0F0;
     justify-content: center;
     align-items: center;
 }
@@ -53,7 +53,7 @@
 {
     position: relative;
     width: 100%;
-    height: 70%; /*370px*/
+    height: 70%; /*370px  70%*/
     /*border: 1px solid #0FF;*/
     justify-content: center;
     align-items: center;
@@ -136,6 +136,47 @@
 
 
 /*--------- GAMES ---------*/
+
+.image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover; 
+    transition: opacity 1s ease; 
+    user-select: none;
+    -webkit-user-drag: none;
+
+}
+
+.games-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: black;
+    font-size: 24px;
+    opacity: 0; 
+    transition: opacity 0.5s ease; /* Lassan megjelenik a szöveg */
+}
+
+/*
+.item.active:hover .image {
+    opacity: 0; 
+}
+
+.item.active:hover .games-text {
+    opacity: 1; 
+}
+*/
+
 /*
 #peligro
 {

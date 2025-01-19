@@ -62,10 +62,13 @@ function loadShow(sliderId)
     const items = state.items;
     const active = state.active;
 
+    items.forEach(item => item.classList.remove('active'));
+
     requestAnimationFrame(() => {
 
     
     let stt = 0;
+    items[active].classList.add('active');
     items[active].style.transform = `none`;
     items[active].style.zIndex = items.length + 1;
     items[active].style.filter = `none`;
@@ -86,7 +89,7 @@ function loadShow(sliderId)
         items[i].style.transform = `translateX(${(Width * 0.5)*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(-1deg)`;
         items[i].style.zIndex = items.length-stt;
         items[i].style.filter = `blur(5px)`;
-        items[i].style.opacity = stt > 2 ? 0 : 0.4;
+        items[i].style.opacity = stt > 2 ? 0 : 0.3;
     }
 
     stt = 0;
@@ -101,7 +104,7 @@ function loadShow(sliderId)
         items[i].style.transform = `translateX(${-(Width * 0.5)*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(1deg)`;
         items[i].style.zIndex = items.length-stt;
         items[i].style.filter = `blur(5px)`;
-        items[i].style.opacity = stt > 2 ? 0 : 0.4;
+        items[i].style.opacity = stt > 2 ? 0 : 0.3;
     }
 
     });
