@@ -47,6 +47,12 @@
     color: #FFF;
     font-size: min(1.5vw, 2vh);
     font-weight: bolder;
+
+    -webkit-tap-highlight-color: transparent;
+    user-select: none; 
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    touch-action: manipulation;
 }
 
 .menu-item:hover { 

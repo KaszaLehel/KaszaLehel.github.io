@@ -26,7 +26,7 @@
 {
     position:absolute;
     display: flex;
-    height: 100vh;
+    /*height: 100vh;*/
     height: 90%; /*90vh 90dvh*/
     width: 87%; /*87*/
     right: 2%;
@@ -40,7 +40,7 @@
 .one-g
 {
     position: absolute;
-    bottom: 90%;
+    top: 2%;  /*bottom 90%*/
     margin-bottom: 2%;
     padding: 0% 1% 0% 1%;
    /* border: 1px solid #000;*/
@@ -58,6 +58,12 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent; 
+    user-select: none; 
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    touch-action: manipulation;
 }
 
 .item
@@ -121,6 +127,50 @@
     {
         position: absolute;
         width: 65%; /*200px*/
+        height: 100%; /*320px*/
+        text-align: justify;
+        border-radius: 10px;
+        background: transparent;
+        padding: 2%; /*20px*/
+        transition: 0.5s;
+        /*left: calc(50%);  /*calc(50%)*/
+        transform: translateX(-50%);
+        top: 0;
+        border: 1px solid #000;
+    }
+}
+
+@media(max-width: 370px)
+{
+    .one
+    {
+        position:absolute;
+        display: flex;
+        height: 90%; /*90vh 90dvh*/
+        width: 90%; /*87*/
+        /*right: 2%;*/
+        flex-direction: row;
+        overflow: hidden;
+        /*border: 1px solid #0F0;*/
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slider
+    {
+        position: relative;
+        width: 100%;
+        height: 70%; /*370px  70%*/
+        /*border: 1px solid #0FF;*/
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .item
+    {
+        position: absolute;
+        width: 90%; /*200px*/
         height: 100%; /*320px*/
         text-align: justify;
         border-radius: 10px;
