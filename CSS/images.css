@@ -32,7 +32,7 @@
     right: 2%;
     flex-direction: row;
     overflow: hidden;
-    border: 1px solid #0F0;
+    /*border: 1px solid #0F0;*/
     justify-content: center;
     align-items: center;
 }
