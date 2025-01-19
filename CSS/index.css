@@ -230,17 +230,6 @@
     left: 3%;
 }
 
-#separator
-{
-    position:fixed;
-    background-color: #FFF;
-    height: 70%;
-    width: 1px;
-    left: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
 #tools
 {
     position: absolute;
@@ -287,30 +276,6 @@
     /*border: 1px solid #0F0;*/
     text-align:justify;
 }
-/*
-#serbia
-{
-    position: absolute;
-    height: auto;
-    width: 30%;
-    /*border: 1px solid #0F0;
-    bottom: 20%;
-    left: 17%;
-    text-align: justify;
-}
-
-#germany
-{
-    position: absolute;
-    height: auto;
-    width: 30%;
-    /*border: 1px solid #0F0;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 17%;
-    text-align: justify;
-}
-*/
 
 
 /*--------- ELSO SECTION -----------*/
