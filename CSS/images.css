@@ -218,16 +218,19 @@
     opacity: 0;
     transition: bottom 0.3s ease, opacity 0.1s ease;
     pointer-events: none;
-    
+    touch-action: manipulation;
 }
+
+
 .info-button {
-    background-color:rgba(235, 236, 220, 0.6); /* rgba(0, 0, 0, 0.6);*/
+    background-color:rgba(235, 236, 220, 1); /* rgba(0, 0, 0, 0.6);*/
     color: black; /*white*/
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    touch-action: manipulation;
     transition: background-color 0.3s ease;
 }
 .info-button span
@@ -235,10 +238,12 @@
     font-size: 10px;
     font-style: italic;
 }
+/*
 .info-button:hover {
     background-color: rgba(235, 236, 220, 1);
     border: 1px solid #000;
 }
+*/
 .hidden-text {
     position: absolute;
     top: 0;
@@ -265,6 +270,9 @@
     bottom: 20px;
     opacity: 1;
     pointer-events: auto;
+}
+.hidden-text a {
+    pointer-events: auto; 
 }
 
 /*

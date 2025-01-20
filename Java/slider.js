@@ -149,7 +149,63 @@ function showButtonText(sliderId) {
             hiddenText.style.pointerEvents = 'none';
         }
 
-        hoverButton.addEventListener("click", () => {
+        hoverButton.addEventListener("click", (event) => {
+            event.preventDefault(); // Megakadályozza az alapértelmezett viselkedést
+            event.stopPropagation(); // Megakadályozza az esemény továbbadását
+            handleButtonClick(event);
+        });
+        
+        hoverButton.addEventListener("touchstart", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            handleButtonClick(event);
+        });
+        
+        hiddenText.addEventListener("click", (event) => {
+            if (event.target.tagName === 'A')
+            {
+                console.log("Link clicked!");
+                return;
+            }
+            else{
+                console.log("HiddenText clicked!");
+                handleHiddenTextClick(event);
+            }
+            
+        });
+        
+        hiddenText.addEventListener("touchstart", (event) => {
+            if (event.target.tagName === 'A')
+            {
+                console.log(" Mobile Link clicked!");
+                return;
+            }
+            else{
+                console.log("Mobile HiddenText clicked!");
+                handleHiddenTextClick(event);
+            }
+        });
+
+        function handleButtonClick(event) {
+            if (index === state.active) {
+                image.style.opacity = 0;
+                hiddenText.style.opacity = 1;
+                hoverButton.style.visibility = 'hidden';
+                hiddenText.style.pointerEvents = 'auto';
+            }
+        }
+        
+        function handleHiddenTextClick(event) {
+            if (index === state.active) {
+                image.style.opacity = 1;
+                hiddenText.style.opacity = 0;
+                hoverButton.style.visibility = 'visible';
+                hiddenText.style.pointerEvents = 'none';
+            }
+        }
+/*
+        hoverButton.addEventListener("click", (event) => {
+            event.stopPropagation();
             if(index === state.active)
             {
                 //console.log("ACTIVE: " + state.active);
@@ -160,8 +216,10 @@ function showButtonText(sliderId) {
                 hiddenText.style.pointerEvents = 'auto';
             }
         });
+*/
 
-        hiddenText.addEventListener("click", () => {
+        hiddenText.addEventListener("click", (event) => {
+            event.stopPropagation();
             if (index === state.active)
             {
                 image.style.opacity = 1;
