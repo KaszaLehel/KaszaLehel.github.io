@@ -1,6 +1,6 @@
 let slidersState = {
     'slider-games': {
-        active: 0,
+        active: 2,
         items: document.querySelectorAll('#slider-games .item'),
         isDragging: false,
         startX: 0,
@@ -14,7 +14,7 @@ let slidersState = {
         currentX: 0
     },
     'slider-else': {
-        active: 0,
+        active: 2,
         items: document.querySelectorAll('#slider-else .item'),
         isDragging: false,
         startX: 0,
@@ -44,6 +44,10 @@ window.onload = function()
     setupDragEvents("slider-games");
     setupDragEvents("slider-design");
     setupDragEvents("slider-else");
+
+    showButtonText("slider-games");
+    showButtonText("slider-design");
+    showButtonText("slider-else");
 };
 
 
@@ -124,6 +128,73 @@ prev.onclick = function()
 };
 */
 
+function showButtonText(sliderId) {
+
+    let state = slidersState[sliderId];
+    const items = state.items;
+
+    resetItems(sliderId);
+
+    items.forEach((item, index) => {
+        const hoverButton = item.querySelector(".info-button"); //info-button hover-button
+        const hiddenText = item.querySelector(".hidden-text");
+        const image = item.querySelector(".image");
+
+        if (!hoverButton || !hiddenText || !image) return;
+
+        if (index !== state.active) {
+            image.style.opacity = 1;
+            hiddenText.style.opacity = 0;
+            hoverButton.style.visibility = 'visible';
+            hiddenText.style.pointerEvents = 'none';
+        }
+
+        hoverButton.addEventListener("click", () => {
+            if(index === state.active)
+            {
+                //console.log("ACTIVE: " + state.active);
+
+                image.style.opacity = 0;
+                hiddenText.style.opacity = 1;
+                hoverButton.style.visibility = 'hidden';
+                hiddenText.style.pointerEvents = 'auto';
+            }
+        });
+
+        hiddenText.addEventListener("click", () => {
+            if (index === state.active)
+            {
+                image.style.opacity = 1;
+                hiddenText.style.opacity = 0;
+                hoverButton.style.visibility = 'visible';
+                hiddenText.style.pointerEvents = 'none';
+            }
+        });
+    });
+
+    loadShow(sliderId);
+
+}
+
+function resetItems(sliderId) {
+    const state = slidersState[sliderId];
+    const items = state.items;
+
+    items.forEach((item, index) => {
+        const hoverButton = item.querySelector(".info-button"); //hover-button
+        const hiddenText = item.querySelector(".hidden-text");
+        const image = item.querySelector(".image");
+
+        if (!hoverButton || !hiddenText || !image) return;
+
+        // Minden elem visszaállítása az alapállapotba
+        image.style.opacity = 1;
+        hiddenText.style.opacity = 0;
+        hoverButton.style.visibility = 'visible';
+        hiddenText.style.pointerEvents = 'none';
+    });
+}
+
 function setupDragEvents(sliderId) {
     const state = slidersState[sliderId];
     const slider = document.querySelector(`#${sliderId}`); //('.slider')
@@ -167,6 +238,8 @@ function setupDragEvents(sliderId) {
         else if (deltaX > 50) {
             state.active = state.active - 1 >= 0 ? state.active - 1 : state.active;
         }
+
+        resetItems(sliderId);
     
         loadShow(sliderId);
     }
