@@ -221,29 +221,48 @@
     touch-action: manipulation;
 }
 
+@media(hover: hover)
+{
+    .info-button {
+        background-color:rgba(235, 236, 220, 0.6); /* rgba(0, 0, 0, 0.6);*/
+        color: black; /*white*/
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        touch-action: manipulation;
+        transition: background-color 0.3s ease;
+    }
 
-.info-button {
-    background-color:rgba(235, 236, 220, 1); /* rgba(0, 0, 0, 0.6);*/
-    color: black; /*white*/
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    touch-action: manipulation;
-    transition: background-color 0.3s ease;
 }
+
+@media(hover: none)
+{
+    .info-button {
+        background-color:rgba(235, 236, 220, 1); /* rgba(0, 0, 0, 0.6);*/
+        color: black; /*white*/
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        touch-action: manipulation;
+        transition: background-color 0.3s ease;
+    }
+}
+
 .info-button span
 {
     font-size: 10px;
     font-style: italic;
 }
-/*
+
 .info-button:hover {
     background-color: rgba(235, 236, 220, 1);
     border: 1px solid #000;
 }
-*/
+
 .hidden-text {
     position: absolute;
     top: 0;
@@ -255,7 +274,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size:min(2vw, 2.5vh); /*13px; 20px;*/
     text-align: justify;
     padding: 20px;
     box-sizing: border-box;
