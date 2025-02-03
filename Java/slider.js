@@ -48,15 +48,20 @@ window.onload = function()
     showButtonText("slider-games");
     showButtonText("slider-design");
     showButtonText("slider-else");
-
-    for (const sliderId in slidersState) {
-        const slider = document.querySelector(`#${sliderId}`);
-        setupIntersectionObserver(sliderId, slider);
-    }
 };
+
+
+//let next = document.getElementById('next');
+//let prev = document.getElementById('prev');
+
+
+
 
 function loadShow(sliderId)
 {
+    /*let items = document.querySelectorAll(`#${sliderId} .item`);
+    let active = 0;*/
+
     const state = slidersState[sliderId];
     const items = state.items;
     const active = state.active;
@@ -64,118 +69,64 @@ function loadShow(sliderId)
     items.forEach(item => item.classList.remove('active'));
 
     requestAnimationFrame(() => {
-        let stt = 0;
-        items[active].classList.add('active');
-        items[active].style.transform = `none`;
-        items[active].style.zIndex = items.length + 1;
-        items[active].style.filter = `none`;
-        items[active].style.opacity = 1;
+
+    
+    let stt = 0;
+    items[active].classList.add('active');
+    items[active].style.transform = `none`;
+    items[active].style.zIndex = items.length + 1;
+    items[active].style.filter = `none`;
+    items[active].style.opacity = 1;
+
+    let Width = items[active].offsetWidth;
+    let leftPosition = `calc(50% - ${Width * 0.5}px)`;
+    items[active].style.left = leftPosition;
+
+    for(var i = active + 1; i< items.length; i++)
+    {
+        stt++;
 
         let Width = items[active].offsetWidth;
         let leftPosition = `calc(50% - ${Width * 0.5}px)`;
-        items[active].style.left = leftPosition;
+        items[i].style.left = leftPosition;
 
-        for(var i = active + 1; i< items.length; i++)
-        {
-            stt++;
+        items[i].style.transform = `translateX(${(Width * 0.5)*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(-1deg)`;
+        items[i].style.zIndex = items.length-stt;
+        items[i].style.filter = `blur(5px)`;
+        items[i].style.opacity = stt > 2 ? 0 : 0.4;
+    }
 
-            let Width = items[active].offsetWidth;
-            let leftPosition = `calc(50% - ${Width * 0.5}px)`;
-            items[i].style.left = leftPosition;
+    stt = 0;
+    for(var i = active - 1; i >= 0; i--)
+    {
+        stt++;
 
-            items[i].style.transform = `translateX(${(Width * 0.5)*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(-1deg)`;
-            items[i].style.zIndex = items.length-stt;
-            items[i].style.filter = `blur(5px)`;
-            items[i].style.opacity = stt > 2 ? 0 : 0.4;
-        }
+        let Width = items[active].offsetWidth;
+        let leftPosition = `calc(50% - ${Width * 0.5}px)`;
+        items[i].style.left = leftPosition;
 
-        stt = 0;
-        for(var i = active - 1; i >= 0; i--)
-        {
-            stt++;
-
-            let Width = items[active].offsetWidth;
-            let leftPosition = `calc(50% - ${Width * 0.5}px)`;
-            items[i].style.left = leftPosition;
-
-            items[i].style.transform = `translateX(${-(Width * 0.5)*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(1deg)`;
-            items[i].style.zIndex = items.length-stt;
-            items[i].style.filter = `blur(5px)`;
-            items[i].style.opacity = stt > 2 ? 0 : 0.4;
-        }
-
-        handleImageVideoOpacity(sliderId)
-
-        const slider = document.querySelector(`#${sliderId}`);
-        if (state.observer) {
-            state.observer.disconnect(); // Megszüntetjük a régi observer-t
-        }
-        setupIntersectionObserver(sliderId, slider);
+        items[i].style.transform = `translateX(${-(Width * 0.5)*stt}px) scale(${1 - 0.2*stt}) perspective(16px) rotateY(1deg)`;
+        items[i].style.zIndex = items.length-stt;
+        items[i].style.filter = `blur(5px)`;
+        items[i].style.opacity = stt > 2 ? 0 : 0.4;
+    }
 
     });
 }
 
-function handleImageVideoOpacity(sliderId) {
-    const state = slidersState[sliderId];
-    const items = state.items;
-    const active = state.active;
+/*
+next.onclick = function()
+{
+    active = active + 1 < items.length ? active + 1 : active;
+    loadShow(); 
+};
 
-    items.forEach((item, index) => {
-        const image = item.querySelector(".image");
-        const video = item.querySelector(".video");
-
-        if (image && video) {
-            if (index === active) {
-                image.style.opacity = 0; 
-                video.style.opacity = 1; 
-            } else {
-                image.style.opacity = 1; 
-                video.style.opacity = 0; 
-                video.pause(); 
-            }
-        }
-    });
-}
-function setupIntersectionObserver(sliderId, slider) {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const state = slidersState[sliderId];
-                const activeItem = state.items[state.active];
-                const video = activeItem.querySelector('.video');
-                const image = activeItem.querySelector('.image');
-                if (video) {
-                    video.style.opacity = 1;
-                    if (video.paused) 
-                        { 
-                            video.play().catch(error => console.warn("Autoplay failed:", error));
-                        }
-                if(image){
-                    image.style.opacity = 0;
-                }
-                    
-                }
-            } else {
-                const state = slidersState[sliderId];
-                const activeItem = state.items[state.active];
-                const video = activeItem.querySelector('.video');
-                const image = activeItem.querySelector('.image');
-                if (video) {
-                    video.style.opacity = 0;
-                    video.pause();
-                }
-                if(image){
-                    image.style.opacity = 1;
-                }
-            }
-        });
-    }, { threshold: 0.5 }); 
-
-    observer.observe(slider);
-
-    const state = slidersState[sliderId];
-    state.observer = observer; 
-}
+prev.onclick = function()
+{
+    active = active - 1 >= 0 ? active -1 : active;
+    loadShow();
+};
+*/
 
 function showButtonText(sliderId) {
 
@@ -185,32 +136,19 @@ function showButtonText(sliderId) {
     resetItems(sliderId);
 
     items.forEach((item, index) => {
-        const hoverButton = item.querySelector(".info-button"); 
+        const hoverButton = item.querySelector(".info-button"); //info-button hover-button
         const hiddenText = item.querySelector(".hidden-text");
         const image = item.querySelector(".image");
-        const video = item.querySelector(".video");
 
         if (!hoverButton || !hiddenText || !image) return;
 
-        if(video)
-        {
-            if (index !== state.active) {
-                image.style.opacity = 1;
-                //video.style.opacity = 1;
-                hiddenText.style.opacity = 0;
-                hoverButton.style.visibility = 'visible';
-                hiddenText.style.pointerEvents = 'none';
-            }
+        if (index !== state.active) {
+            image.style.opacity = 1;
+            hiddenText.style.opacity = 0;
+            hoverButton.style.visibility = 'visible';
+            hiddenText.style.pointerEvents = 'none';
         }
-        else
-        {
-            if (index !== state.active) {
-                image.style.opacity = 1;
-                hiddenText.style.opacity = 0;
-                hoverButton.style.visibility = 'visible';
-                hiddenText.style.pointerEvents = 'none';
-            }
-        }
+
         hoverButton.addEventListener("click", (event) => {
             event.preventDefault(); // Megakadályozza az alapértelmezett viselkedést
             event.stopPropagation(); // Megakadályozza az esemény továbbadását
@@ -249,78 +187,51 @@ function showButtonText(sliderId) {
         });
 
         function handleButtonClick(event) {
-            if(video)
-            {
-                if (index === state.active) {
-                    image.style.opacity = 0;
-                    video.style.opacity = 0;
-                    hiddenText.style.opacity = 1;
-                    hoverButton.style.visibility = 'hidden';
-                    hiddenText.style.pointerEvents = 'auto';
-                }
+            if (index === state.active) {
+                image.style.opacity = 0;
+                hiddenText.style.opacity = 1;
+                hoverButton.style.visibility = 'hidden';
+                hiddenText.style.pointerEvents = 'auto';
             }
-            else
-            {
-                if (index === state.active) {
-                    image.style.opacity = 0;
-                    hiddenText.style.opacity = 1;
-                    hoverButton.style.visibility = 'hidden';
-                    hiddenText.style.pointerEvents = 'auto';
-                }
-            }
-            
         }
         
         function handleHiddenTextClick(event) {
-            if(video)
-            {
-                if (index === state.active) {
-                    image.style.opacity = 0;
-                    video.style.opacity = 1;
-                    hiddenText.style.opacity = 0;
-                    hoverButton.style.visibility = 'visible';
-                    hiddenText.style.pointerEvents = 'none';
-                }
+            if (index === state.active) {
+                image.style.opacity = 1;
+                hiddenText.style.opacity = 0;
+                hoverButton.style.visibility = 'visible';
+                hiddenText.style.pointerEvents = 'none';
             }
-            else
-            {
-                if (index === state.active) {
-                    image.style.opacity = 1;
-                    hiddenText.style.opacity = 0;
-                    hoverButton.style.visibility = 'visible';
-                    hiddenText.style.pointerEvents = 'none';
-                }
-            }
-            
         }
+/*
+        hoverButton.addEventListener("click", (event) => {
+            event.stopPropagation();
+            if(index === state.active)
+            {
+                //console.log("ACTIVE: " + state.active);
+
+                image.style.opacity = 0;
+                hiddenText.style.opacity = 1;
+                hoverButton.style.visibility = 'hidden';
+                hiddenText.style.pointerEvents = 'auto';
+            }
+        });
+*/
+
         hiddenText.addEventListener("click", (event) => {
             event.stopPropagation();
-
-            if(video)
+            if (index === state.active)
             {
-                if (index === state.active)
-                    {
-                        image.style.opacity = 0;
-                        video.style.opacity = 1;
-                        hiddenText.style.opacity = 0;
-                        hoverButton.style.visibility = 'visible';
-                        hiddenText.style.pointerEvents = 'none';
-                    }
+                image.style.opacity = 1;
+                hiddenText.style.opacity = 0;
+                hoverButton.style.visibility = 'visible';
+                hiddenText.style.pointerEvents = 'none';
             }
-            else
-            {
-                if (index === state.active)
-                    {
-                        image.style.opacity = 1;
-                        hiddenText.style.opacity = 0;
-                        hoverButton.style.visibility = 'visible';
-                        hiddenText.style.pointerEvents = 'none';
-                    }
-            }
-            
         });
     });
-    loadShow(sliderId); //MAJD MEGLATJUK HOGY KELL-E 
+
+    loadShow(sliderId);
+
 }
 
 function resetItems(sliderId) {
@@ -328,42 +239,27 @@ function resetItems(sliderId) {
     const items = state.items;
 
     items.forEach((item, index) => {
-        const hoverButton = item.querySelector(".info-button"); 
+        const hoverButton = item.querySelector(".info-button"); //hover-button
         const hiddenText = item.querySelector(".hidden-text");
         const image = item.querySelector(".image");
-        const video = item.querySelector(".video");
 
         if (!hoverButton || !hiddenText || !image) return;
-        
-        if(video)
-        {
-            if(index !== state.active)
-            {
-                image.style.opacity = 1;
-                video.style.opacity = 0;
-                hiddenText.style.opacity = 0;
-                hoverButton.style.visibility = 'visible';
-                hiddenText.style.pointerEvents = 'none';
-            }
-        }
-        else
-        {
-            if(index !== state.active)
-            {
-                image.style.opacity = 1;
-                hiddenText.style.opacity = 0;
-                hoverButton.style.visibility = 'visible';
-                hiddenText.style.pointerEvents = 'none';
-            }
-        }
 
-        
+        // Minden elem visszaállítása az alapállapotba
+        image.style.opacity = 1;
+        hiddenText.style.opacity = 0;
+        hoverButton.style.visibility = 'visible';
+        hiddenText.style.pointerEvents = 'none';
     });
 }
 
 function setupDragEvents(sliderId) {
     const state = slidersState[sliderId];
-    const slider = document.querySelector(`#${sliderId}`); 
+    const slider = document.querySelector(`#${sliderId}`); //('.slider')
+
+    /*let startX = 0; 
+    let currentX = 0; 
+    let isDragging = false;*/
 
     slider.addEventListener("mousedown", startDrag);
     slider.addEventListener("mousemove", onDrag);
