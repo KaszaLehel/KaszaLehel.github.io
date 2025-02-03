@@ -146,7 +146,10 @@ function setupIntersectionObserver(sliderId, slider) {
                 const image = activeItem.querySelector('.image');
                 if (video) {
                     video.style.opacity = 1;
-                    video.play();
+                    if (video.paused) 
+                        { 
+                            video.play().catch(error => console.warn("Autoplay failed:", error));
+                        }
                 if(image){
                     image.style.opacity = 0;
                 }
