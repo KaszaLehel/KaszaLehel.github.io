@@ -7,7 +7,7 @@ let slidersState = {
         currentX: 0
     },
     'slider-design': {
-        active: 0,
+        active: 1,
         items: document.querySelectorAll('#slider-design .item'),
         isDragging: false,
         startX: 0,
