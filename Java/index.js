@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     function toggleButtonVisibility() {
-        if (window.innerWidth <= 1024 || window.innerHeight <= 600) { 
+        if (window.innerWidth <= 3000 || window.innerHeight <= 3000) { //window.innerWidth <= 1024 || window.innerHeight <= 600
             buttonContainer.style.visibility = 'hidden';
         } else {
             buttonContainer.style.visibility = 'visible';
