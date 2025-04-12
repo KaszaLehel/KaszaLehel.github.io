@@ -83,6 +83,36 @@
     box-sizing: border-box;
 }
 
+.scrolle {
+    position: absolute;
+    bottom: 8%; /* távolság a projects div aljától */
+    left: 54%;
+    /*transform: translateX(-50%);*/
+    width: 24px;
+    height: 24px;
+    z-index: 10;
+    /*border: 1px solid red;*/
+}
+
+.scrolle span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid #000;
+    border-right: 3px solid #000;
+    transform: rotate(45deg);
+
+    /*
+    position: absolute;
+    color: rgba(235, 236, 220, 1);
+    display: flex;
+    font-size: min(1.5vw, 1.5vh);
+    border: 1px solid #00F;
+    bottom: 5%;
+    */
+}
+
+
 .one
 {
     position:absolute;
