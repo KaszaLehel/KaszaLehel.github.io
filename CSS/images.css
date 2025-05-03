@@ -58,6 +58,34 @@
 .email-link:hover {
     text-decoration: none; 
 }
+.footnote-row {
+    /*border: 1px solid #0FF;*/
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    /*justify-content: space-between;*/
+    align-items: center;
+    padding: 0 5%;
+}
+
+.link-group {
+    position: absolute;
+    right: 5%; 
+    display: flex;
+    gap: 1.5em;
+}
+
+.footer-link {
+    color: rgba(235, 236, 220, 1);
+    text-decoration: none;
+    font-size: min(2vw, 2vh);
+    transition: text-decoration 0.2s ease;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
 
 #projects /*-------- SECTION ID--------*/
 {
